@@ -5,6 +5,7 @@ import com.app.secureglobal.model.dashboard.getDashboardApiResponse.GetDashboard
 import com.app.secureglobal.model.finalSubmission.GetFinalSubmissionApiResponse
 import com.app.secureglobal.model.finalSubmission.SaveFinalSubmissionData
 import com.app.secureglobal.model.getAcceptRejectResponse.GetAcceptRejectResponse
+import com.app.secureglobal.model.getDocketForScan.GetDocketForScanResponse
 import com.app.secureglobal.model.getFiResidencePicture.GetFiResidencePictureResponse
 import com.app.secureglobal.model.getMenuListResponse.GetMenuListResponse
 import com.app.secureglobal.model.getMenuWebUrlResponse.GetMenuURLResponse
@@ -93,5 +94,8 @@ interface ApiInterface {
 
     @GET("api/MobileAppMenu/GetDashboard")
     fun getDashboardMenuResponse(): Observable<GetDashboardApiResponse>
+
+    @GET("api/Docket/GetDocketForScan")
+    fun getDocketForScanResponse(@Query("DocketNo") docketNo: String): Observable<GetDocketForScanResponse>
 
 }

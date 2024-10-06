@@ -118,7 +118,10 @@ dependencies {
 
     implementation ("com.google.firebase:firebase-messaging-ktx:24.0.2")
     implementation ("com.google.firebase:firebase-bom:29.3.1")
-    implementation ("com.google.firebase:firebase-messaging:23.0.3")
+    implementation ("com.google.firebase:firebase-messaging:24.0.2")
 
-    implementation ("id.zelory:compressor:3.0.1")
+    implementation (libs.compressor)
+
+    implementation (libs.zxing.android.embedded)
+
 }

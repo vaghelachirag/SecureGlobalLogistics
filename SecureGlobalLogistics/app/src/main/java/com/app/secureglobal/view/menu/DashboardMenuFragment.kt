@@ -1,11 +1,15 @@
 package com.app.secureglobal.view.menu
 
+import android.R.attr
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.app.secureglobal.R
@@ -14,6 +18,8 @@ import com.app.secureglobal.model.dashboard.getDashboardApiResponse.GetMobileDas
 import com.app.secureglobal.uttils.Utils
 import com.app.secureglobal.view.base.BaseFragment
 import com.app.secureglobal.viewmodel.DashboardMenuViewModel
+import com.google.zxing.integration.android.IntentIntegrator
+
 
 class DashboardMenuFragment: BaseFragment()  {
 
@@ -36,8 +42,6 @@ class DashboardMenuFragment: BaseFragment()  {
             if (isLoading && isAdded) showProgressbar()
             else if (!isLoading && isAdded) hideProgressbar()
         }
-
-
         return binding.root
     }
 
@@ -45,12 +49,10 @@ class DashboardMenuFragment: BaseFragment()  {
         if (!getDashboard.getAdditionalCaption().isNullOrEmpty() && getDashboard.getAdditionalCaption().equals("0")){
             context?.let { Utils().showToast(it,"No Data Found!") }
         }else {
-            val bundle = Bundle()
-            bundle.putString("RcuType", getDashboard.getButtonCaption())
-            findNavController().navigate(
-                R.id.action_dashboardMenuFragment_to_dashboardFragment,
-                bundle
-            )
+            val intentIntegrator = IntentIntegrator(requireActivity())
+            intentIntegrator.setPrompt("Scan a barcode or QR Code")
+            intentIntegrator.setOrientationLocked(true)
+            intentIntegrator.initiateScan()
         }
     }
 

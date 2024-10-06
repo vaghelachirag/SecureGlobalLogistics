@@ -1,5 +1,6 @@
 package com.app.secureglobal.view.menu
 import android.Manifest
+import android.R.attr
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.BroadcastReceiver
@@ -34,26 +35,14 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.app.secureglobal.view.dialougs.ChangePasswordDialoug
-import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.gms.common.api.PendingResult
-import com.google.android.gms.common.api.Status
-import com.google.android.gms.location.LocationRequest
-import com.google.android.gms.location.LocationServices
-import com.google.android.gms.location.LocationSettingsRequest
-import com.google.android.gms.location.LocationSettingsResult
-import com.google.android.gms.location.LocationSettingsStatusCodes
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.MultiplePermissionsReport
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import com.app.secureglobal.BuildConfig
 import com.app.secureglobal.MainActivity
 import com.app.secureglobal.R
 import com.app.secureglobal.databinding.ActivityDashboardBinding
 import com.app.secureglobal.interfaces.OnItemSelected
+import com.app.secureglobal.model.dashboard.getDashboardApiResponse.GetDashboardApiResponse
+import com.app.secureglobal.model.getDocketForScan.GetDocketForScanData
+import com.app.secureglobal.model.getDocketForScan.GetDocketForScanResponse
 import com.app.secureglobal.model.getMenuListResponse.GetMenuListData
 import com.app.secureglobal.model.getMenuListResponse.GetMenuListResponse
 import com.app.secureglobal.network.CallbackObserver
@@ -66,6 +55,22 @@ import com.app.secureglobal.uttils.Utility
 import com.app.secureglobal.uttils.Utils
 import com.app.secureglobal.view.adapter.MenuItemAdapter
 import com.app.secureglobal.view.base.BaseActivity
+import com.app.secureglobal.view.dialougs.ChangePasswordDialoug
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.google.android.gms.common.api.GoogleApiClient
+import com.google.android.gms.common.api.PendingResult
+import com.google.android.gms.common.api.Status
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationServices
+import com.google.android.gms.location.LocationSettingsRequest
+import com.google.android.gms.location.LocationSettingsResult
+import com.google.android.gms.location.LocationSettingsStatusCodes
+import com.google.zxing.integration.android.IntentIntegrator
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.MultiplePermissionsReport
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
@@ -331,8 +336,62 @@ class DashboardActivity : BaseActivity(){
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        Log.e("Scan","Scan")
         if (requestCode == REQUEST_CHECK_SETTINGS) {
             initializeService()
+        }
+        else{
+            val intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
+            // if the intentResult is null then
+            // toast a message as "cancelled"
+            if (intentResult != null) {
+                if (intentResult.contents == null) {
+                    Toast.makeText(baseContext, "Cancelled", Toast.LENGTH_SHORT).show()
+                } else {
+                    Log.e("Scan",intentResult.contents)
+                    getDocketForScanResult(intentResult.contents)
+                }
+            } else {
+                super.onActivityResult(requestCode, resultCode, data)
+            }
+        }
+    }
+
+    private fun getDocketForScanResult(docketNumber: String) {
+        if (Utility.isNetworkConnected(this)){
+            showProgressbar()
+            Networking.with(this)
+                .getServices()
+                .getDocketForScanResponse(docketNumber)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : CallbackObserver<GetDocketForScanResponse>() {
+                    override fun onSuccess(response: GetDocketForScanResponse) {
+                        hideProgressbar()
+                    }
+
+                    override fun onFailed(code: Int, message: String) {
+                        hideProgressbar()
+                        Log.e("Status",code.toString())
+                        Utils().showToast(this@DashboardActivity,"Authentication token has expired")
+                        redirectToLogin()
+                    }
+
+                    override fun onNext(t: GetDocketForScanResponse) {
+                        hideProgressbar()
+                        Log.e("Status",t.getStatusCode().toString())
+                        if(t.getStatusCode() == 200){
+
+                        }else{
+                            Utils().showToast(this@DashboardActivity,t.getMessage().toString())
+                        }
+                        Log.e("StatusCode",t.getStatus().toString())
+                    }
+
+                })
+        }else{
+            Utils().showToast(this@DashboardActivity,getString(R.string.nointernetconnection).toString())
         }
     }
 
