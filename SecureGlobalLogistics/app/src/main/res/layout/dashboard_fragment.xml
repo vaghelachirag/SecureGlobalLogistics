@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.squmish.rcuapp.viewmodel.DashboardViewModel" />
+            type="com.app.secureglobal.viewmodel.DashboardViewModel" />
     </data>
 
 
@@ -33,7 +33,7 @@
             android:layout_marginRight="@dimen/_10sdp"
             app:layout_constraintTop_toBottomOf="@+id/ll_Header">
 
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/totalVerification"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -41,7 +41,7 @@
                 android:text="@string/totalVerification"
                 tools:ignore="MissingConstraints,RtlSymmetry">
 
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
 
             <LinearLayout
                 android:id="@+id/ll_TotalVerification"
@@ -50,7 +50,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:ignore="MissingConstraints">
 
-                <com.squmish.rcuapp.widget.HeaderText
+                <com.app.secureglobal.widget.HeaderText
                     android:id="@+id/totalVerificationCount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -60,7 +60,7 @@
                     android:textColor="@color/white"
                     android:text="1">
 
-                </com.squmish.rcuapp.widget.HeaderText>
+                </com.app.secureglobal.widget.HeaderText>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

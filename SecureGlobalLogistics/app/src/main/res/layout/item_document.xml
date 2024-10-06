@@ -11,15 +11,15 @@
 
         <variable
             name="itemData"
-            type="com.squmish.rcuapp.model.getverificationDetailResponse.GetVerificationDocument" />
+            type="com.app.secureglobal.model.getverificationDetailResponse.GetVerificationDocument" />
 
         <variable
             name="holder"
-            type="com.squmish.rcuapp.view.adapter.DocumentViewHolder" />
+            type="com.app.secureglobal.view.adapter.DocumentViewHolder" />
 
         <variable
             name="viewmodel"
-            type="com.squmish.rcuapp.viewmodel.verificationDetail.BasicInformationViewModel" />
+            type="com.app.secureglobal.viewmodel.verificationDetail.BasicInformationViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView

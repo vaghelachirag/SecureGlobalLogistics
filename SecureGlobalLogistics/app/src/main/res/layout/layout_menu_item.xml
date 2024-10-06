@@ -12,15 +12,15 @@
 
         <variable
             name="itemData"
-            type="com.squmish.rcuapp.model.getMenuListResponse.GetMenuListData" />
+            type="com.app.secureglobal.model.getMenuListResponse.GetMenuListData" />
 
         <variable
             name="holder"
-            type="com.squmish.rcuapp.view.adapter.MenuItemViewHolder" />
+            type="com.app.secureglobal.view.adapter.MenuItemViewHolder" />
 
         <variable
             name="viewmodel"
-            type="com.squmish.rcuapp.viewmodel.DashboardViewModel" />
+            type="com.app.secureglobal.viewmodel.DashboardViewModel" />
     </data>
 
     <LinearLayout
@@ -40,7 +40,7 @@
 
     </androidx.appcompat.widget.AppCompatImageView>
 
-        <com.squmish.rcuapp.widget.SmallText
+        <com.app.secureglobal.widget.SmallText
             android:id="@+id/txtMenuName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,6 +55,6 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="SpUsage">
 
-        </com.squmish.rcuapp.widget.SmallText>
+        </com.app.secureglobal.widget.SmallText>
     </LinearLayout>
 </layout>

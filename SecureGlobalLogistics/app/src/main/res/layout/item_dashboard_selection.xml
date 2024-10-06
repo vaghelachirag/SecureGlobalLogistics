@@ -11,15 +11,15 @@
 
         <variable
             name="itemData"
-            type="com.squmish.rcuapp.model.dashboard.getDashboardApiResponse.GetMobileDashboardDetailDto" />
+            type="com.app.secureglobal.model.dashboard.getDashboardApiResponse.GetMobileDashboardDetailDto" />
 
         <variable
             name="holder"
-            type="com.squmish.rcuapp.view.adapter.DashboardMenuViewHolder" />
+            type="com.app.secureglobal.view.adapter.DashboardMenuViewHolder" />
 
         <variable
             name="viewmodel"
-            type="com.squmish.rcuapp.viewmodel.DashboardMenuViewModel" />
+            type="com.app.secureglobal.viewmodel.DashboardMenuViewModel" />
     </data>
 <androidx.cardview.widget.CardView
     android:layout_width="@dimen/_100sdp"
@@ -67,7 +67,7 @@
                 android:backgroundTint="@color/main_bg"
                 android:gravity="center">
 
-                <com.squmish.rcuapp.widget.HeaderText
+                <com.app.secureglobal.widget.HeaderText
                     android:id="@+id/txtCounter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -77,12 +77,12 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp">
 
-                </com.squmish.rcuapp.widget.HeaderText>
+                </com.app.secureglobal.widget.HeaderText>
             </LinearLayout>
 
         </FrameLayout>
 
-        <com.squmish.rcuapp.widget.SmallText
+        <com.app.secureglobal.widget.SmallText
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             android:textColor="@android:color/black"
             android:textSize="@dimen/_10sdp" />
 
-        <com.squmish.rcuapp.widget.HeaderText
+        <com.app.secureglobal.widget.HeaderText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/desc"

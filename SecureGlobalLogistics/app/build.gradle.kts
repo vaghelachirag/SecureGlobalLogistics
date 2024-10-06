@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.squmish.rcuapp"
+    namespace = "com.app.secureglobal"
     compileSdk = 34
 
     buildFeatures {
@@ -15,7 +15,7 @@ android {
 
 
     defaultConfig {
-        applicationId = "com.squmish.rcuapp"
+        applicationId = "com.app.secureglobal"
         minSdk = 26
         targetSdk = 34
         versionCode = 2
@@ -116,7 +116,7 @@ dependencies {
     implementation (libs.material)
     implementation (libs.androidx.work.runtime.ktx)
 
-    implementation ("com.google.firebase:firebase-messaging-ktx:23.0.3")
+    implementation ("com.google.firebase:firebase-messaging-ktx:24.0.2")
     implementation ("com.google.firebase:firebase-bom:29.3.1")
     implementation ("com.google.firebase:firebase-messaging:23.0.3")
 

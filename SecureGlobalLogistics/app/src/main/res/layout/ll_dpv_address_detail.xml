@@ -7,7 +7,7 @@
     <data>
         <variable
             name="addressconfirmed"
-            type="com.squmish.rcuapp.viewmodel.verificationDetail.DocumentProfileVerificationViewModel"  />
+            type="com.app.secureglobal.viewmodel.verificationDetail.DocumentProfileVerificationViewModel"  />
     </data>
 
     <LinearLayout
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.squmish.rcuapp.widget.HeaderText
+        <com.app.secureglobal.widget.HeaderText
             android:id="@+id/applicant_address_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,9 +23,9 @@
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12sdp">
-        </com.squmish.rcuapp.widget.HeaderText>
+        </com.app.secureglobal.widget.HeaderText>
 
-        <com.squmish.rcuapp.widget.SmallText
+        <com.app.secureglobal.widget.SmallText
             android:id="@+id/applicant_address_confirmed_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12sdp">
-        </com.squmish.rcuapp.widget.SmallText>
+        </com.app.secureglobal.widget.SmallText>
 
         <RadioGroup
             android:id="@+id/rb_applicant_address_confirmed_label"
@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_is_office_open_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
             <RadioGroup
                 android:id="@+id/rb_applicant_is_office_open_label"
                 android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                 app:passwordToggleEnabled="false"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_PersonMet"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -130,7 +130,7 @@
                 app:passwordToggleEnabled="false"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_applicant_Designation_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -150,7 +150,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:orientation="vertical">
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_Document_signed_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -158,7 +158,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
             <RadioGroup
                 android:id="@+id/rb_applicant_Document_signed_label"
                 android:layout_width="match_parent"
@@ -197,7 +197,7 @@
                 app:passwordToggleEnabled="false"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_applicant_authorised_name_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -221,7 +221,7 @@
                 app:passwordToggleEnabled="false"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_applicant_authorised_person_designation_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -240,7 +240,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_personally_met_with_authorised_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -248,7 +248,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
             <RadioGroup
                 android:id="@+id/rb_applicant_personally_met_with_authorised_label"
                 android:layout_width="match_parent"
@@ -273,7 +273,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_isAnyProof_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -281,7 +281,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
             <RadioGroup
                 android:id="@+id/rb_applicant_isAnyProof_label"
                 android:layout_width="match_parent"
@@ -313,7 +313,7 @@
             android:visibility="gone"
             tools:ignore="MissingClass,MissingConstraints">
 
-            <com.squmish.rcuapp.widget.TypefaceEditText
+            <com.app.secureglobal.widget.TypefaceEditText
                 android:id="@+id/edt_applicant_name_of_document_label"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edit_text_size"
@@ -344,7 +344,7 @@
                 app:passwordToggleEnabled="false"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_Reason"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -375,7 +375,7 @@
                     android:background="@color/light_Gray"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Applicant_Latitude_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -405,7 +405,7 @@
                     android:background="@color/light_Gray"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Applicant_Longitude_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -437,7 +437,7 @@
                     android:layout_weight="1"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_OtherObservations_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_80sdp"

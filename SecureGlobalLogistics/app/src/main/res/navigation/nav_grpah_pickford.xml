@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/dashboardMenuFragment"
-        android:name="com.squmish.rcuapp.view.menu.DashboardMenuFragment"
+        android:name="com.app.secureglobal.view.menu.DashboardMenuFragment"
         android:label="@string/dashboard_menu_fragment_label"
         app:popUpToInclusive="true"
         app:destination="@id/dashboardFragment"
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/dashboardFragment"
-        android:name="com.squmish.rcuapp.view.menu.DashboardFragment"
+        android:name="com.app.secureglobal.view.menu.DashboardFragment"
         android:label="@string/dashboard_fragment_label"
         app:popUpTo="@id/nav_graph"
         app:popUpToInclusive="false"
@@ -54,7 +54,7 @@
 
     <fragment
         android:id="@+id/webViewFragment"
-        android:name="com.squmish.rcuapp.view.menu.WebViewFragment"
+        android:name="com.app.secureglobal.view.menu.WebViewFragment"
         android:label="@string/webView_fragment_label"
         app:enterAnim="@anim/nav_default_enter_anim"
         app:exitAnim="@anim/nav_default_exit_anim"
@@ -75,14 +75,14 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="com.example.rcuapp.view.HomeFragment"
+        android:name="com.app.secureglobal.view.HomeFragment"
         android:label="@string/home_fragment_label"
         tools:layout="@layout/home_fragment">
     </fragment>
 
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.example.rcuapp.view.menu.SettingFragment"
+        android:name="com.app.secureglobal.view.menu.SettingFragment"
         android:label="@string/action_settings"
         tools:layout="@layout/setting_fragment">
         <action
@@ -92,7 +92,7 @@
 
     <fragment
         android:id="@+id/changePasswordFragment"
-        android:name="com.example.rcuapp.view.menu.ChangePasswordFragment"
+        android:name="com.app.secureglobal.view.menu.ChangePasswordFragment"
         android:label="@string/action_changePassword"
         tools:layout="@layout/change_password_fragment">
         <action
@@ -102,7 +102,7 @@
 
     <fragment
         android:id="@+id/fragmentbasicinformation"
-        android:name="com.squmish.rcuapp.view.detail.FragmentBasicInformation"
+        android:name="com.app.secureglobal.view.detail.FragmentBasicInformation"
         android:label="@string/action_settings"
         tools:layout="@layout/fragment_basic_information">
 

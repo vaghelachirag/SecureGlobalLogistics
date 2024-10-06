@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.squmish.rcuapp.viewmodel.HomeViewModel" />
+            type="com.app.secureglobal.viewmodel.HomeViewModel" />
     </data>
 
 

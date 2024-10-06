@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.squmish.rcuapp.viewmodel.verificationDetail.PostNeighbourVerificationViewModel"  />
+            type="com.app.secureglobal.viewmodel.verificationDetail.PostNeighbourVerificationViewModel"  />
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -41,7 +41,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                <com.squmish.rcuapp.widget.HeaderText
+                <com.app.secureglobal.widget.HeaderText
                     android:id="@+id/txtNeighbourChecOne"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp">
 
-                </com.squmish.rcuapp.widget.HeaderText>
+                </com.app.secureglobal.widget.HeaderText>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inpNeighbour1Name"
@@ -63,7 +63,7 @@
                     app:passwordToggleEnabled="false"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Neighbour1Name"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -86,7 +86,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/inpNeighbour1Name"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Neighbour1Mobile"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -111,7 +111,7 @@
                     app:passwordToggleEnabled="false"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Neighbour1Remark"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -125,7 +125,7 @@
                         app:custom_font="@string/app_font_regular" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.squmish.rcuapp.widget.HeaderText
+                <com.app.secureglobal.widget.HeaderText
                     android:id="@+id/txtNeighbourChecTwo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,7 +135,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp">
 
-                </com.squmish.rcuapp.widget.HeaderText>
+                </com.app.secureglobal.widget.HeaderText>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inpNeighbour2Name"
@@ -148,7 +148,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/txtNeighbourChecTwo"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Neighbour2Name"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -174,7 +174,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/inpNeighbour2Name"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Neighbour2Mobile"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -201,7 +201,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/inpNeighbour2Mobile"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Neighbour2Remark"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -215,7 +215,7 @@
                         app:custom_font="@string/app_font_regular" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.squmish.rcuapp.widget.HeaderText
+                <com.app.secureglobal.widget.HeaderText
                     android:id="@+id/txt_NeibourRecognised"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
                     android:text="@string/neighbourreconised"
                     android:textSize="@dimen/_12sdp"
                     app:layout_constraintTop_toBottomOf="@+id/inpNeighbour2Remark">
-                </com.squmish.rcuapp.widget.HeaderText>
+                </com.app.secureglobal.widget.HeaderText>
 
 
                     <com.google.android.material.textfield.TextInputLayout
@@ -235,7 +235,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/txt_NeibourRecognised"
                         android:hint="@string/neighbourreconised">
 
-                        <com.squmish.rcuapp.widget.InstantAutoComplete
+                        <com.app.secureglobal.widget.InstantAutoComplete
                             android:id="@+id/spnNeighbourReconised"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/edit_text_size"
@@ -262,7 +262,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/inspnNeighbourReconised"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Reason"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"

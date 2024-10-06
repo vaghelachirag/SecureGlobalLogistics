@@ -40,7 +40,7 @@
 
                         </ImageView>
 
-                        <com.squmish.rcuapp.widget.HeaderText
+                        <com.app.secureglobal.widget.HeaderText
                             android:id="@+id/tvTitle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
                             tools:listitem="@layout/layout_menu_item" />
 
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtVersion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -116,7 +116,7 @@
                         android:layout_marginTop="@dimen/_20sdp"
                         android:layout_marginLeft="@dimen/_10sdp"
                         android:gravity="start">
-                    </com.squmish.rcuapp.widget.HeaderText>
+                    </com.app.secureglobal.widget.HeaderText>
 
                 </LinearLayout>
 

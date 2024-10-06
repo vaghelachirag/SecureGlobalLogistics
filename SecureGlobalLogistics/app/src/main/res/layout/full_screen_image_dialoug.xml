@@ -13,7 +13,7 @@
             android:layout_height="match_parent">
 
 
-            <com.squmish.rcuapp.uttils.ZoomageView
+            <com.app.secureglobal.uttils.ZoomageView
                 android:id="@+id/iv_Document"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_500sdp"
@@ -21,7 +21,7 @@
                 android:src="@drawable/icon_pdf"
                 tools:ignore="MissingConstraints">
 
-            </com.squmish.rcuapp.uttils.ZoomageView>
+            </com.app.secureglobal.uttils.ZoomageView>
 
             <ImageView
                 android:id="@+id/iv_Close"

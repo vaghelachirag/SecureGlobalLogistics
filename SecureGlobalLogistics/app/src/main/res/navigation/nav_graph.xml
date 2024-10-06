@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/SplashScreen"
-        android:name="com.example.rcuapp.view.SplashScreen"
+        android:name="com.app.secureglobal.view.SplashScreen"
         android:label="@string/splash_fragment_label"
         tools:layout="@layout/splashscreen">
 
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/LoginFragment"
-        android:name="com.squmish.rcuapp.view.LoginFragment"
+        android:name="com.app.secureglobal.view.LoginFragment"
         android:label="@string/login_fragment_label"
         tools:layout="@layout/loginscreen"
         app:enterAnim="@anim/nav_default_enter_anim"
@@ -46,7 +46,7 @@
     </fragment>
     <fragment
         android:id="@+id/SignUpFragment"
-        android:name="com.example.rcuapp.view.SignupFragment"
+        android:name="com.app.secureglobal.view.SignupFragment"
         android:label="@string/signup_fragment_label"
         tools:layout="@layout/signup_fragment">
 

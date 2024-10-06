@@ -11,15 +11,15 @@
 
         <variable
             name="itemData"
-            type="com.squmish.rcuapp.model.pendingRequest.GetPendingRequestData" />
+            type="com.app.secureglobal.model.pendingRequest.GetPendingRequestData" />
 
         <variable
             name="holder"
-            type="com.squmish.rcuapp.view.adapter.DashboardViewHolder" />
+            type="com.app.secureglobal.view.adapter.DashboardViewHolder" />
 
         <variable
             name="viewmodel"
-            type="com.squmish.rcuapp.viewmodel.DashboardViewModel" />
+            type="com.app.secureglobal.viewmodel.DashboardViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -52,7 +52,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     tools:ignore="ExtraText">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtApplicateName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -65,8 +65,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="14sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.SmallText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
                         android:id="@+id/txtCaseNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.SmallText>
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -109,7 +109,7 @@
                     android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtVerificationForHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -123,8 +123,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.SmallText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
                         android:id="@+id/txtVerificationFor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints,SmallSp">
-                    </com.squmish.rcuapp.widget.SmallText>
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -155,7 +155,7 @@
                     android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtAddressHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -169,8 +169,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.SmallText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
                         android:id="@+id/txtAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints,SmallSp">
-                    </com.squmish.rcuapp.widget.SmallText>
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -201,7 +201,7 @@
                     android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtBankHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -215,8 +215,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.SmallText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
                         android:id="@+id/txtBank"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.SmallText>
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -248,7 +248,7 @@
                     android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtProductHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -262,8 +262,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.SmallText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
                         android:id="@+id/txtProudct"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.SmallText>
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -295,7 +295,7 @@
                     android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtCaseIdHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -309,8 +309,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.SmallText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
                         android:id="@+id/txtCaseId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints,SmallSp">
-                    </com.squmish.rcuapp.widget.SmallText>
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -342,7 +342,7 @@
                     android:weightSum="2"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtAssignDateHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -356,8 +356,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.SmallText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
                         android:id="@+id/txtAssignDt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -369,7 +369,7 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints,SmallSp">
-                    </com.squmish.rcuapp.widget.SmallText>
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -400,7 +400,7 @@
                     android:paddingBottom="@dimen/_5sdp"
                     app:layout_constraintStart_toStartOf="parent">
 
-                    <com.squmish.rcuapp.widget.HeaderText
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtFiTypeHeader"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -414,8 +414,8 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints">
-                    </com.squmish.rcuapp.widget.HeaderText>
-                    <com.squmish.rcuapp.widget.HeaderText
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.HeaderText
                         android:id="@+id/txtFitype"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -429,11 +429,11 @@
                         android:drawablePadding="3sp"
                         android:textSize="12sp"
                         tools:ignore="MissingConstraints,SmallSp">
-                    </com.squmish.rcuapp.widget.HeaderText>
+                    </com.app.secureglobal.widget.HeaderText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <com.squmish.rcuapp.widget.HeaderText
+            <com.app.secureglobal.widget.HeaderText
                 android:id="@+id/FiStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

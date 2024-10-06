@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.squmish.rcuapp.viewmodel.SettingViewModel" />
+            type="com.app.secureglobal.viewmodel.SettingViewModel" />
     </data>
 
 
@@ -17,7 +17,7 @@
         android:background="@color/dashboard_bg">
 
 
-        <com.squmish.rcuapp.widget.HeaderText
+        <com.app.secureglobal.widget.HeaderText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -27,7 +27,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-        </com.squmish.rcuapp.widget.HeaderText>
+        </com.app.secureglobal.widget.HeaderText>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

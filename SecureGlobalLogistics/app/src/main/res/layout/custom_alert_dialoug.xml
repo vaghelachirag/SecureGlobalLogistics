@@ -23,7 +23,7 @@
                     android:visibility="gone"
                     app:srcCompat="@drawable/ic_close" />
 
-                <com.squmish.rcuapp.widget.HeaderText
+                <com.app.secureglobal.widget.HeaderText
                     android:id="@+id/tvMessage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -10,15 +10,15 @@
 
         <variable
             name="itemData"
-            type="com.squmish.rcuapp.model.getverificationDetailResponse.GetFiVerificationDocument" />
+            type="com.app.secureglobal.model.getverificationDetailResponse.GetFiVerificationDocument" />
 
         <variable
             name="holder"
-            type="com.squmish.rcuapp.view.adapter.PicturesViewHolder" />
+            type="com.app.secureglobal.view.adapter.PicturesViewHolder" />
 
         <variable
             name="viewmodel"
-            type="com.squmish.rcuapp.viewmodel.verificationDetail.PictureViewModel" />
+            type="com.app.secureglobal.viewmodel.verificationDetail.PictureViewModel" />
 
     </data>
 
@@ -42,7 +42,7 @@
                 android:background="@drawable/border_image"
                 android:src="@mipmap/ic_launcher" />
 
-            <com.squmish.rcuapp.widget.HeaderText
+            <com.app.secureglobal.widget.HeaderText
                 android:id="@+id/txtRemove"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:onClick="@{(view) -> holder.onClickDelete(position,itemData)}"
                 tools:ignore="RtlHardcoded,SpUsage">
 
-            </com.squmish.rcuapp.widget.HeaderText>
+            </com.app.secureglobal.widget.HeaderText>
         </FrameLayout>
 
 

@@ -8,14 +8,14 @@
     <data>
         <variable
             name="personalInforamtion"
-            type="com.squmish.rcuapp.viewmodel.verificationDetail.RCUVerificationViewModel"  />
+            type="com.app.secureglobal.viewmodel.verificationDetail.RCUVerificationViewModel"  />
     </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.squmish.rcuapp.widget.HeaderText
+        <com.app.secureglobal.widget.HeaderText
             android:id="@+id/applicant_PersonalInformation_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:textColor="@color/black"
             android:layout_marginTop="@dimen/_10sdp"
             android:textSize="@dimen/_12sdp">
-        </com.squmish.rcuapp.widget.HeaderText>
+        </com.app.secureglobal.widget.HeaderText>
 
         <LinearLayout
             android:id="@+id/ll_PersonalInforamtionTwo"
@@ -49,7 +49,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:hint="@string/applicant_HouseLocality_label">
 
-                <com.squmish.rcuapp.widget.InstantAutoComplete
+                <com.app.secureglobal.widget.InstantAutoComplete
                     android:id="@+id/spnHouseLocality"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -77,7 +77,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:hint="@string/applicant_AccommodationType_label">
 
-                <com.squmish.rcuapp.widget.InstantAutoComplete
+                <com.app.secureglobal.widget.InstantAutoComplete
                     android:id="@+id/spnAccommodationType"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -101,7 +101,7 @@
                 android:visibility="gone"
                 android:orientation="vertical">
 
-                <com.squmish.rcuapp.widget.SmallText
+                <com.app.secureglobal.widget.SmallText
                     android:id="@+id/applicant_StayingAtCurrentAddress_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
                     android:textColor="@color/black"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp">
-                </com.squmish.rcuapp.widget.SmallText>
+                </com.app.secureglobal.widget.SmallText>
 
 
                 <LinearLayout
@@ -130,7 +130,7 @@
                         android:layout_marginTop="@dimen/_5sdp"
                         tools:ignore="MissingClass,MissingConstraints">
 
-                        <com.squmish.rcuapp.widget.TypefaceEditText
+                        <com.app.secureglobal.widget.TypefaceEditText
                             android:id="@+id/edt_applicant_StayingAtCurrentAddress_label"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/edit_text_size"
@@ -157,7 +157,7 @@
                         android:layout_marginStart="@dimen/_5sdp"
                         android:hint="Select size">
 
-                        <com.squmish.rcuapp.widget.InstantAutoComplete
+                        <com.app.secureglobal.widget.InstantAutoComplete
                             android:id="@+id/spnapplicant_HouseSize_label"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/edit_text_size"
@@ -177,7 +177,7 @@
 
             </LinearLayout>
 
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_IsNameboardseenattheHouse_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -185,7 +185,7 @@
                 android:textColor="@color/black"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
             <RadioGroup
                 android:id="@+id/rb_applicant_IsNameboardseenattheHouse_label"
                 android:layout_width="match_parent"
@@ -210,7 +210,7 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone"
                 android:orientation="vertical">
-                <com.squmish.rcuapp.widget.SmallText
+                <com.app.secureglobal.widget.SmallText
                     android:id="@+id/applicant_IsNameboardmismatched_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -218,7 +218,7 @@
                     android:textColor="@color/black"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:textSize="@dimen/_12sdp">
-                </com.squmish.rcuapp.widget.SmallText>
+                </com.app.secureglobal.widget.SmallText>
                 <RadioGroup
                     android:id="@+id/rb_IsNameboardseenattheHouse_label"
                     android:layout_width="match_parent"
@@ -248,7 +248,7 @@
                     android:layout_weight="1"
                     tools:ignore="InefficientWeight,MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_Applicant_Reason_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"

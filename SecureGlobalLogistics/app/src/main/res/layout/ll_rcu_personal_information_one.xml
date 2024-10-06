@@ -7,7 +7,7 @@
     <data>
         <variable
             name="personinformation1"
-            type="com.squmish.rcuapp.viewmodel.verificationDetail.RCUVerificationViewModel"  />
+            type="com.app.secureglobal.viewmodel.verificationDetail.RCUVerificationViewModel"  />
     </data>
 
     <LinearLayout
@@ -32,7 +32,7 @@
                 android:layout_weight="1"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_PersonMet"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_Relation_Applicant_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:visibility="gone"
                 android:textSize="@dimen/_12sdp">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/TextInputExposedDropdownMenu"
@@ -75,7 +75,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:hint="@string/applicant_Relation_Applicant_label">
 
-                <com.squmish.rcuapp.widget.InstantAutoComplete
+                <com.app.secureglobal.widget.InstantAutoComplete
                     android:id="@+id/spnapplicant_Relation_Applicant"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -103,7 +103,7 @@
             android:layout_weight="1"
             tools:ignore="MissingClass,MissingConstraints">
 
-            <com.squmish.rcuapp.widget.TypefaceEditText
+            <com.app.secureglobal.widget.TypefaceEditText
                 android:id="@+id/edt_Person_MobileNumber"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/edit_text_size"
@@ -135,7 +135,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_Age"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -162,7 +162,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:hint="@string/applicant_MaritalStatus_label">
 
-                <com.squmish.rcuapp.widget.InstantAutoComplete
+                <com.app.secureglobal.widget.InstantAutoComplete
                     android:id="@+id/spnapplicant_MaterialStatus"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -189,7 +189,7 @@
             android:visibility="visible"
             android:orientation="vertical">
 
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_address_confirmed_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,7 +200,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/layoutCamera"
                 android:textSize="@dimen/_12sdp"
                 tools:ignore="SpUsage">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/addFamilyMemberRecyclerView"
@@ -236,7 +236,7 @@
                 android:background="@color/light_Gray"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_applicant_TotalFamilyMembers_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -266,7 +266,7 @@
                 android:background="@color/light_Gray"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_applicant_TotalEarningMember_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -303,7 +303,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:hint="@string/applicant_HouseOwnership_label">
 
-                <com.squmish.rcuapp.widget.InstantAutoComplete
+                <com.app.secureglobal.widget.InstantAutoComplete
                     android:id="@+id/spnapplicant_HouseOwnership_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -346,7 +346,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_PermanentAddress_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -372,7 +372,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_MonthlyRentAmount_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -406,7 +406,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_LandlordName_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -432,7 +432,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_LandlordMobileNo_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -454,7 +454,7 @@
             android:visibility="visible"
             android:orientation="vertical">
 
-            <com.squmish.rcuapp.widget.SmallText
+            <com.app.secureglobal.widget.SmallText
                 android:id="@+id/applicant_StayingAtCurrentAddress_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -463,7 +463,7 @@
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textSize="@dimen/_12sdp"
                 tools:ignore="SpUsage">
-            </com.squmish.rcuapp.widget.SmallText>
+            </com.app.secureglobal.widget.SmallText>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -482,7 +482,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_StayingAtCurrentAddress_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -509,7 +509,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     android:hint="select">
 
-                    <com.squmish.rcuapp.widget.InstantAutoComplete
+                    <com.app.secureglobal.widget.InstantAutoComplete
                         android:id="@+id/spncurrentaddress"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -539,7 +539,7 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 tools:ignore="MissingClass,MissingConstraints">
 
-                <com.squmish.rcuapp.widget.TypefaceEditText
+                <com.app.secureglobal.widget.TypefaceEditText
                     android:id="@+id/edt_applicant_ElectricityBill_label"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/edit_text_size"
@@ -570,7 +570,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_KNo_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"
@@ -596,7 +596,7 @@
                     android:layout_marginTop="@dimen/_5sdp"
                     tools:ignore="MissingClass,MissingConstraints">
 
-                    <com.squmish.rcuapp.widget.TypefaceEditText
+                    <com.app.secureglobal.widget.TypefaceEditText
                         android:id="@+id/edt_applicant_UnitConsumedLastMonth_label"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/edit_text_size"

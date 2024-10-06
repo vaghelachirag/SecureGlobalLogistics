@@ -8,7 +8,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.squmish.rcuapp.viewmodel.verificationDetail.DocumentProfileVerificationViewModel"  />
+            type="com.app.secureglobal.viewmodel.verificationDetail.DocumentProfileVerificationViewModel"  />
     </data>
 
     <androidx.core.widget.NestedScrollView

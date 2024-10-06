@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.squmish.rcuapp.viewmodel.WebViewViewModel" />
+            type="com.app.secureglobal.viewmodel.WebViewViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

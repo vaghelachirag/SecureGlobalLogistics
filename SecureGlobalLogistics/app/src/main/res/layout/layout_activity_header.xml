@@ -12,7 +12,8 @@
         android:background="@color/main_bg"
         app:title="DashBoard"
         app:titleTextAppearance="@style/Toolbar.TitleText"
-        app:titleTextColor="@color/white">
+        app:titleTextColor="@color/white"
+        tools:ignore="MissingConstraints">
 
 
         <ImageView
@@ -25,7 +26,7 @@
 
         </ImageView>
 
-        <com.squmish.rcuapp.widget.HeaderText
+        <com.app.secureglobal.widget.HeaderText
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
