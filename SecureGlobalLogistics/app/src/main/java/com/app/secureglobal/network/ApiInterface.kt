@@ -6,10 +6,12 @@ import com.app.secureglobal.model.finalSubmission.GetFinalSubmissionApiResponse
 import com.app.secureglobal.model.finalSubmission.SaveFinalSubmissionData
 import com.app.secureglobal.model.getAcceptRejectResponse.GetAcceptRejectResponse
 import com.app.secureglobal.model.getDocketForScan.GetDocketForScanResponse
+import com.app.secureglobal.model.getDocketforPickupResponse.GetDocketForPickupResponse
 import com.app.secureglobal.model.getFiResidencePicture.GetFiResidencePictureResponse
 import com.app.secureglobal.model.getMenuListResponse.GetMenuListResponse
 import com.app.secureglobal.model.getMenuWebUrlResponse.GetMenuURLResponse
 import com.app.secureglobal.model.getPreNeighbourData.GetPreNeighbourResponse
+import com.app.secureglobal.model.getSavePickupDataResponse.GetSavePickupResponse
 import com.app.secureglobal.model.getSaveResidenceVerificationResponse.GetSaveResidenceVerificationResponse
 import com.app.secureglobal.model.getverificationDetailResponse.GetVerificationDetailResponse
 import com.app.secureglobal.model.getUserProfileData.GetUserProfileResponse
@@ -97,5 +99,9 @@ interface ApiInterface {
 
     @GET("api/Docket/GetDocketForScan")
     fun getDocketForScanResponse(@Query("DocketNo") docketNo: String): Observable<GetDocketForScanResponse>
+
+    @GET("api/Docket/GetDocketForPickup")
+    fun getDocketForPickupResponse(@Query("DocketNo") docketNo: String): Observable<GetSavePickupResponse>
+
 
 }
