@@ -24,43 +24,6 @@ class DetailViewModel(private val context: Context) : BaseViewModel(){
 
     fun init(context: Context) {
        isData.value = false
-     getVerificationRequestDetail()
-    }
-
-    private fun getVerificationRequestDetail() {
-        if (Utility.isNetworkConnected(context)){
-            isLoading.postValue(true)
-            Networking.with(context)
-                .getServices()
-                .getVerificationRequestDetail(AppConstants.verificationId.toString())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : CallbackObserver<GetVerificationDetailResponse>() {
-                    override fun onSuccess(response: GetVerificationDetailResponse) {
-                        isLoading.postValue(false)
-                    }
-
-                    override fun onFailed(code: Int, message: String) {
-                        isLoading.postValue(false)
-                    }
-
-                    override fun onNext(t: GetVerificationDetailResponse) {
-                        Log.e("Status",t.getStatusCode().toString())
-                        isLoading.postValue(false)
-                        if(t.getStatusCode() == 200){
-                           if(t.getData() != null){
-                               isData.value = true
-                               getVerificationDetailData.postValue(t.getData())
-                           }
-                        }else{
-                            Utils().showToast(context,t.getMessage().toString())
-                        }
-                    }
-                })
-        }else{
-
-        }
-
     }
 
 }

@@ -62,5 +62,9 @@ object AppConstants {
     var residenceVerificationType = "RV"
     var documentProfileVerificationType = "DPV"
 
+
+    var  InScan = 1
+    var  Pickup = 2
+
 }
 

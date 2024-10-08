@@ -211,7 +211,7 @@ class Utility {
 
         @RequiresApi(api = Build.VERSION_CODES.KITKAT)
         public fun getPath(context: Context, uri: Uri): String? {
-            val isKitKat = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
+            val isKitKat = true
 
             // DocumentProvider
             if (isKitKat && DocumentsContract.isDocumentUri(context, uri)) {
@@ -319,7 +319,6 @@ class Utility {
                 }
             }
         }
-
 
 
         public  fun getBackupFolderData(exportDir: File) : ArrayList<String>? {

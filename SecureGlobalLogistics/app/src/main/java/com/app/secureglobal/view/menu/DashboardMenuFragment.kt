@@ -1,6 +1,5 @@
 package com.app.secureglobal.view.menu
 
-import android.R.attr
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -9,16 +8,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.app.secureglobal.R
 import com.app.secureglobal.databinding.DashboardMenuFragmentBinding
 import com.app.secureglobal.model.dashboard.getDashboardApiResponse.GetMobileDashboardDetailDto
+import com.app.secureglobal.uttils.AppConstants
 import com.app.secureglobal.uttils.Utils
 import com.app.secureglobal.view.base.BaseFragment
+import com.app.secureglobal.view.detail.ActivityDetail
 import com.app.secureglobal.viewmodel.DashboardMenuViewModel
-import com.google.zxing.integration.android.IntentIntegrator
 
 
 class DashboardMenuFragment: BaseFragment()  {
@@ -29,6 +28,7 @@ class DashboardMenuFragment: BaseFragment()  {
 
     private val dashboardMenuViewModel by lazy { DashboardMenuViewModel(activity as Context,binding,this@DashboardMenuFragment) }
 
+    var scanType: Int = 0
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
@@ -49,10 +49,28 @@ class DashboardMenuFragment: BaseFragment()  {
         if (!getDashboard.getAdditionalCaption().isNullOrEmpty() && getDashboard.getAdditionalCaption().equals("0")){
             context?.let { Utils().showToast(it,"No Data Found!") }
         }else {
-            val intentIntegrator = IntentIntegrator(requireActivity())
+            Log.e("MenuId",getDashboard.getButtonCaption().toString())
+
+            if (getDashboard.getButtonCaption().equals("In-Scan")){
+                scanType = AppConstants.InScan
+            }
+            else if (getDashboard.getButtonCaption().equals("Pickup")){
+                scanType = AppConstants.Pickup
+            }
+            else{
+                scanType = 0
+            }
+            val bundle = Bundle()
+            bundle.putInt("ScanType", scanType)
+            val activityScan = Intent(requireActivity(),ActivityDetail:: class.java)
+            activityScan.putExtras(bundle)
+            startActivity(activityScan)
+
+         /*   val intentIntegrator = IntentIntegrator(requireActivity())
             intentIntegrator.setPrompt("Scan a barcode or QR Code")
             intentIntegrator.setOrientationLocked(true)
-            intentIntegrator.initiateScan()
+            intentIntegrator.initiateScan()*/
+
         }
     }
 

@@ -32,11 +32,11 @@
 
     <!-- RCU Verification!-->
     <string name="applicant_address_label">Applicant Address Detail</string>
-    <string name="applicant_address_confirmed_label">Address Confirm as given <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_address_belongs_label">Is this address belongs to applicant ? <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_address_VisitHouse_label">During Visit House is Open ? <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_PersonMet_label">Name of the Person Met <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_Relation_Applicant_label">Relation with Applicant <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_address_confirmed_label">Address Confirm as given <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_address_belongs_label">Is this address belongs to applicant ? <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_address_VisitHouse_label">During Visit House is Open ? <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_PersonMet_label">Name of the Person Met <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_Relation_Applicant_label">Relation with Applicant <font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_MobileNoOfPersonMet_label">Mobile No of Person Met</string>
     <string name="applicant_Age_label">Age</string>
     <string name="applicant_MaritalStatus_label">Marital Status *</string>
@@ -44,9 +44,9 @@
     <string name="applicant_Relation_label">Relation</string>
     <string name="applicant_MemberCount_label">Member Count</string>
     <string name="applicant_EarningCount_label">Earning Count</string>
-    <string name="applicant_TotalFamilyMembers_label">Total Family members <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_TotalEarningMember_label">Total Earning Member <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_HouseOwnership_label">House Ownership <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_TotalFamilyMembers_label">Total Family members <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_TotalEarningMember_label">Total Earning Member <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_HouseOwnership_label">House Ownership <font color='#ff0000'><b>*</b></font></string>
 
     <!--Rent-->
     <string name="applicant_PermanentAddress_label">Permanent Address</string>
@@ -55,14 +55,14 @@
     <string name="applicant_LandlordMobileNo_label">Landlord Mobile No</string>
 
 
-    <string name="applicant_StayingAtCurrentAddress_label">Staying at current address (In Years) <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_StayingAtCurrentAddress_label">Staying at current address (In Years) <font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_ElectricityBill_label">Name in Electricity Bill</string>
     <string name="applicant_KNo_label">K No</string>
     <string name="applicant_UnitConsumedLastMonth_label">Unit Consumed last Month</string>
-    <string name="applicant_HouseLocality_label">House Locality <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_AccommodationType_label">Accommodation Type <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_HouseLocality_label">House Locality <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_AccommodationType_label">Accommodation Type <font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_HouseSize_label">House Size</string>
-    <string name="applicant_IsNameboardseenattheHouse_label">Is Nameboard seen at the House ? <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_IsNameboardseenattheHouse_label">Is Nameboard seen at the House ? <font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_IsNameboardmismatched_label">Is Nameboard mismatched ? *</string>
     <string name="applicant_ApplicantBackgroundCheck_label">Applicant Background Check</string>
     <string name="applicant_Isapplicanthaveanymajormedicalhistory_label">Is applicant have any major medical history?</string>
@@ -90,30 +90,29 @@
 
 
     <!-- RCU Document Verification!-->
-    <string name="applicant_is_office_open_label">Is Office Open at the time of visit ?<font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_Designation_label">Designation of the person met<font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_Document_signed_label">Whether document signed/Issued by the authorised Person<font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_personally_met_with_authorised_label">Whether we personally met with authorised person ?<font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_is_office_open_label">Is Office Open at the time of visit ?<font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_Designation_label">Designation of the person met<font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_Document_signed_label">Whether document signed/Issued by the authorised Person<font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_personally_met_with_authorised_label">Whether we personally met with authorised person ?<font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_authorised_name_label">Authorized Person Name</string>
     <string name="applicant_authorised_person_designation_label">Authorized Person Designation</string>
-    <string name="applicant_isAnyProof_label">Is any Proof/ Evidences shown ? <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_isAnyProof_label">Is any Proof/ Evidences shown ? <font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_name_of_document_label">Name of Document</string>
 
 
-
     <!-- Asset Verification!-->
-    <string name="applicant_assest_address_confirmed_label">Address Confirm as given <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_assest_address_belongs_label">Is this address belongs to applicant ? <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_assest_address_confirmed_label">Address Confirm as given <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_assest_address_belongs_label">Is this address belongs to applicant ? <font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_vehicle_verified_label">Vehicle /Equipment Physically Verfied</string>
-    <string name="applicant_assets_PersonMet_label">Name of the Person Met <font color='#ff0000' ><b>*</b></font></string>
-    <string name="applicant_assets_Relation_Applicant_label">Relation with Applicant <font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_assets_PersonMet_label">Name of the Person Met <font color='#ff0000'><b>*</b></font></string>
+    <string name="applicant_assets_Relation_Applicant_label">Relation with Applicant <font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_assets_MobileNoOfPersonMet_label">Mobile No of Person Met</string>
     <string name="applicant_chasis_no_label">Chassis No / Serial No</string>
     <string name="applicant_engine_no_label">Engine No</string>
     <string name="applicant_pump_no_label">Pump No</string>
     <string name="applicant_meter_reading_label">Meter Reading (Hours/KM)</string>
     <string name="applicant_vehiclenumber_label">Vehicle Number</string>
-    <string name="applicant_make_manufacture_label">Make / Manufacturer<font color='#ff0000' ><b>*</b></font></string>
+    <string name="applicant_make_manufacture_label">Make / Manufacturer<font color='#ff0000'><b>*</b></font></string>
     <string name="applicant_Model_label">Model</string>
     <string name="applicant_copy_of_rc_label">Copy of RC / Invoice / Insurance Available</string>
     <string name="applicant_third_party_use_label">Third Party Use</string>
@@ -139,12 +138,10 @@
     <string name="btn_Signup">Send Request</string>
 
 
-
     <!--Change Password-->
     <string name="oldPassword">Old Password</string>
     <string name="newpassword">New Password</string>
     <string name="confirmpassword">Confirm Password</string>
-
 
 
     <!--PreNeighbour-->
@@ -183,7 +180,6 @@
     <string name="totalVerification">Total Verification :</string>
 
 
-
     <!--  Residence Verification-->
     <string name="refNo">Ref No</string>
     <string name="caseID">Case Id</string>
@@ -203,7 +199,7 @@
     <string name="assigndt">Assign Dt</string>
 
 
-   <!-- Final Submit-->
+    <!-- Final Submit-->
     <string name="status">Status</string>
     <string name="remarks">Remarks</string>
 
@@ -248,7 +244,6 @@
     </string-array>
 
 
-
     <string-array name="house_size">
         <item>Select</item>
         <item>Sq Fts</item>
@@ -263,5 +258,45 @@
 
     <!--    No Internet Connection Message -->
     <string name="nointernetconnection">Local network problem, please check your network</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
+        volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
+        dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad
+        litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend
+        diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,
+        ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n\n
+        Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus
+        egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed
+        neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada
+        fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,
+        molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor
+        bibendum, vel congue leo egestas.\n\n
+        Sed interdum tortor nibh, in sagittis risus mollis quis. Curabitur mi odio, condimentum sit
+        amet auctor at, mollis non turpis. Nullam pretium libero vestibulum, finibus orci vel,
+        molestie quam. Fusce blandit tincidunt nulla, quis sollicitudin libero facilisis et. Integer
+        interdum nunc ligula, et fermentum metus hendrerit id. Vestibulum lectus felis, dictum at
+        lacinia sit amet, tristique id quam. Cras eu consequat dui. Suspendisse sodales nunc ligula,
+        in lobortis sem porta sed. Integer id ultrices magna, in luctus elit. Sed a pellentesque
+        est.\n\n
+        Aenean nunc velit, lacinia sed dolor sed, ultrices viverra nulla. Etiam a venenatis nibh.
+        Morbi laoreet, tortor sed facilisis varius, nibh orci rhoncus nulla, id elementum leo dui
+        non lorem. Nam mollis ipsum quis auctor varius. Quisque elementum eu libero sed commodo. In
+        eros nisl, imperdiet vel imperdiet et, scelerisque a mauris. Pellentesque varius ex nunc,
+        quis imperdiet eros placerat ac. Duis finibus orci et est auctor tincidunt. Sed non viverra
+        ipsum. Nunc quis augue egestas, cursus lorem at, molestie sem. Morbi a consectetur ipsum, a
+        placerat diam. Etiam vulputate dignissim convallis. Integer faucibus mauris sit amet finibus
+        convallis.\n\n
+        Phasellus in aliquet mi. Pellentesque habitant morbi tristique senectus et netus et
+        malesuada fames ac turpis egestas. In volutpat arcu ut felis sagittis, in finibus massa
+        gravida. Pellentesque id tellus orci. Integer dictum, lorem sed efficitur ullamcorper,
+        libero justo consectetur ipsum, in mollis nisl ex sed nisl. Donec maximus ullamcorper
+        sodales. Praesent bibendum rhoncus tellus nec feugiat. In a ornare nulla. Donec rhoncus
+        libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
+        vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
+    </string>
 
 </resources>
