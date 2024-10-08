@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_Header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints"
+                android:padding="8sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="ExtraText">
+
+                    <com.app.secureglobal.widget.HeaderText
+                        android:id="@+id/txtApplicateName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/black2"
+                        android:drawableStart="@drawable/icon_user"
+                        android:drawableTint="@color/black2"
+                        android:drawablePadding="3sp"
+                        android:textSize="14sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.HeaderText>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/divider1"
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/gray_323232"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_VerificationFor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints,RtlSymmetry"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.app.secureglobal.widget.HeaderText
+                        android:id="@+id/txtVerificationForHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/verificationFor"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/gray_323232"
+                        android:drawableStart="@drawable/icon_user"
+                        android:drawableTint="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.HeaderText>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+</layout>

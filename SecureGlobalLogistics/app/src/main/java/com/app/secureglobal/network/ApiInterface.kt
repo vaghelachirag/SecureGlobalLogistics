@@ -101,7 +101,7 @@ interface ApiInterface {
     fun getDocketForScanResponse(@Query("DocketNo") docketNo: String): Observable<GetDocketForScanResponse>
 
     @GET("api/Docket/GetDocketForPickup")
-    fun getDocketForPickupResponse(@Query("DocketNo") docketNo: String): Observable<GetSavePickupResponse>
+    fun getDocketForPickupResponse(@Query("DocketNo") docketNo: String): Observable<GetDocketForPickupResponse>
 
 
 }

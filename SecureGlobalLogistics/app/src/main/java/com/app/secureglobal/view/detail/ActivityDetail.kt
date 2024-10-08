@@ -6,13 +6,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.viewpager.widget.ViewPager
 import com.app.secureglobal.MainActivity
 import com.app.secureglobal.R
 import com.app.secureglobal.databinding.ActivityDetailBinding
-import com.app.secureglobal.interfaces.FragmentLifecycleInterface
 import com.app.secureglobal.model.getDocketForScan.GetDocketForScanResponse
-import com.app.secureglobal.model.getSavePickupDataResponse.GetSavePickupResponse
 import com.app.secureglobal.model.getverificationDetailResponse.GetVerificationDetailData
 import com.app.secureglobal.network.CallbackObserver
 import com.app.secureglobal.network.Networking
@@ -20,9 +17,7 @@ import com.app.secureglobal.room.InitDb
 import com.app.secureglobal.uttils.AppConstants
 import com.app.secureglobal.uttils.Utility
 import com.app.secureglobal.uttils.Utils
-import com.app.secureglobal.view.adapter.VerificationDetailViewPagerAdapter
 import com.app.secureglobal.view.base.BaseActivity
-import com.app.secureglobal.view.detail.fiRequest.FragmentRCOVerification
 import com.app.secureglobal.viewmodel.DetailViewModel
 import com.google.zxing.integration.android.IntentIntegrator
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -36,9 +31,7 @@ open class ActivityDetail  : BaseActivity()  {
 
     private lateinit var binding: ActivityDetailBinding
 
-    private val detailViewModel by lazy { DetailViewModel(this) }
-
-    var viewPagerAdapter: VerificationDetailViewPagerAdapter? = null
+    private val detailViewModel by lazy { DetailViewModel(this,binding) }
 
 
     var scanType: Int = 0
@@ -48,17 +41,16 @@ open class ActivityDetail  : BaseActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
-        viewPagerAdapter = VerificationDetailViewPagerAdapter(supportFragmentManager, 0)
         setContentView(binding.root)
 
         val bundle = intent.extras
         scanType = bundle!!.getInt("ScanType")
         Log.e("ScanType",scanType.toString())
 
-        val intentIntegrator = IntentIntegrator(this)
+     /*   val intentIntegrator = IntentIntegrator(this)
         intentIntegrator.setPrompt("Scan a barcode or QR Code")
         intentIntegrator.setOrientationLocked(true)
-        intentIntegrator.initiateScan()
+        intentIntegrator.initiateScan()*/
 
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         binding.lifecycleOwner = this
@@ -66,7 +58,9 @@ open class ActivityDetail  : BaseActivity()  {
         setView()
         setActionBarHeader()
         setAction()
-        binding.viewPager.setSwipeable(false)
+
+
+        detailViewModel.getDocketForPickupResult("TEST5555")
 
     }
 
@@ -128,7 +122,8 @@ open class ActivityDetail  : BaseActivity()  {
                     if (scanType == AppConstants.InScan){
                         getDocketForScanResult(intentResult.contents)
                     }else{
-                        getDocketForPickupResult(intentResult.contents)
+                        detailViewModel.getDocketForPickupResult(intentResult.contents)
+                      //  getDocketForPickupResult(intentResult.contents)
                     }
 
                 }
@@ -137,43 +132,6 @@ open class ActivityDetail  : BaseActivity()  {
             }
     }
 
-
-    private fun getDocketForPickupResult(docketNumber: String) {
-        if (Utility.isNetworkConnected(this)){
-            showProgressbar()
-            Networking.with(this)
-                .getServices()
-                .getDocketForPickupResponse(docketNumber)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : CallbackObserver<GetSavePickupResponse>() {
-                    override fun onSuccess(response: GetSavePickupResponse) {
-                        hideProgressbar()
-                    }
-
-                    override fun onFailed(code: Int, message: String) {
-                        hideProgressbar()
-                        Log.e("Status",code.toString())
-                        Utils().showToast(this@ActivityDetail,"Authentication token has expired")
-                        redirectToLogin()
-                    }
-
-                    override fun onNext(t: GetSavePickupResponse) {
-                        hideProgressbar()
-                        Log.e("Status",t.getStatusCode().toString())
-                        if(t.getStatusCode() == 200){
-
-                        }else{
-                            Utils().showToast(this@ActivityDetail,t.getMessage().toString())
-                        }
-                        Log.e("StatusCode",t.getStatus().toString())
-                    }
-
-                })
-        }else{
-            Utils().showToast(this@ActivityDetail,getString(R.string.nointernetconnection).toString())
-        }
-    }
 
     private fun getDocketForScanResult(docketNumber: String) {
         if (Utility.isNetworkConnected(this)){

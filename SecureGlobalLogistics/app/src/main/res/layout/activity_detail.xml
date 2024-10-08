@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="pickupDetail"
+            type="com.app.secureglobal.viewmodel.scan.ScanVerificationViewModel"  />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,34 +19,21 @@
         <LinearLayout
             android:id="@+id/ll_Header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
 
             <include   android:id="@+id/layout_detail" layout="@layout/layout_activity_header" />
         </LinearLayout>
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            style="@style/CustomTabLayoutStyle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:tabIndicatorColor="@color/main_bg"
-            app:tabMode="scrollable"
-            android:background="@color/white"
-            android:visibility="visible"
-            app:layout_constraintTop_toBottomOf="@id/ll_Header"
-            app:tabSelectedTextColor="@color/main_bg"
-            app:tabTextAppearance="@style/TabBar.TitleText"
-            app:tabTextColor="@color/warm_grey"
 
-            />
-
-        <com.app.secureglobal.widget.CustomViewPager
-            android:id="@+id/viewPager"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+            android:layout_height="wrap_content"
+            tools:ignore="MissingConstraints">
 
+            <include
+                android:id="@+id/pickupDocket"
+                layout="@layout/ll_pickup_docket" />
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
