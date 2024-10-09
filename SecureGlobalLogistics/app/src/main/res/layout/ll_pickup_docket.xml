@@ -24,7 +24,6 @@
                     tools:ignore="ExtraText">
 
                     <com.app.secureglobal.widget.HeaderText
-                        android:id="@+id/txtShipperName"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -65,7 +64,7 @@
                     app:layout_constraintStart_toStartOf="parent">
 
                     <com.app.secureglobal.widget.HeaderText
-                        android:id="@+id/txtVerificationForHeader"
+                        android:id="@+id/txtShipperName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -84,7 +83,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/ll_Address"
+                android:id="@+id/ll_ShipperAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:ignore="MissingConstraints,RtlSymmetry"
@@ -98,7 +97,7 @@
                     app:layout_constraintStart_toStartOf="parent">
 
                     <com.app.secureglobal.widget.SmallText
-                        android:id="@+id/txtAddress"
+                        android:id="@+id/txtShipperAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
@@ -199,6 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.3dp"
                 android:background="@color/gray_323232"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:orientation="horizontal">
 
             </LinearLayout>
@@ -217,19 +217,273 @@
                     tools:ignore="ExtraText">
 
                     <com.app.secureglobal.widget.HeaderText
-                        android:id="@+id/txtConsineeName"
+                        android:id="@+id/txtConsineeHeader"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center_vertical"
                         android:visibility="visible"
-                        android:text="@string/shipperheader"
+                        android:text="@string/consigneesheader"
                         android:textColor="@color/black2"
                         android:drawableTint="@color/black2"
                         android:drawablePadding="3sp"
                         android:textSize="14sp"
                         tools:ignore="MissingConstraints">
                     </com.app.secureglobal.widget.HeaderText>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/gray_323232"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints,RtlSymmetry"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.app.secureglobal.widget.HeaderText
+                        android:id="@+id/txtConsigneeName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/verificationFor"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/gray_323232"
+                        android:drawableStart="@drawable/icon_user"
+                        android:drawableTint="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.HeaderText>
+                </LinearLayout>
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_ConsigneeAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints,RtlSymmetry"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.app.secureglobal.widget.SmallText
+                        android:id="@+id/txtConsigneeAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/address"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/gray_323232"
+                        android:drawableStart="@drawable/icon_home"
+                        android:drawableTint="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.SmallText>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ll_Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints,RtlSymmetry"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.app.secureglobal.widget.SmallText
+                        android:id="@+id/txtConsigneeMobileNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="@string/address"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/gray_323232"
+                        android:drawableStart="@drawable/icon_product"
+                        android:drawableTint="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.SmallText>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints,RtlSymmetry"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.app.secureglobal.widget.HeaderText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5"
+                        android:text="@string/gstin"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/gray_323232"
+                        android:drawableStart="@drawable/icon_user"
+                        android:drawableTint="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.HeaderText
+                        android:id="@+id/txtConsigneeGSTNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:visibility="visible"
+                        android:layout_gravity="start"
+                        android:layout_weight="0.5"
+                        android:textColor="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints,SmallSp">
+                    </com.app.secureglobal.widget.HeaderText>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/gray_323232"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints,RtlSymmetry"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_5sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.app.secureglobal.widget.HeaderText
+                        android:id="@+id/txtOriginHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:text="@string/origin"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/gray_323232"
+                        android:drawableStart="@drawable/icon_bank"
+                        android:drawableTint="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
+                        android:id="@+id/txtOrigin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:visibility="visible"
+                        android:layout_gravity="start"
+                        android:layout_weight="0.7"
+                        android:textColor="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.SmallText>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingConstraints,RtlSymmetry"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.app.secureglobal.widget.HeaderText
+                        android:id="@+id/txtDestinationHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:text="@string/destination"
+                        android:gravity="center_vertical"
+                        android:visibility="visible"
+                        android:textColor="@color/gray_323232"
+                        android:drawableStart="@drawable/icon_bank"
+                        android:drawableTint="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.HeaderText>
+                    <com.app.secureglobal.widget.SmallText
+                        android:id="@+id/txtDestination"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:visibility="visible"
+                        android:layout_gravity="start"
+                        android:layout_weight="0.7"
+                        android:textColor="@color/gray_323232"
+                        android:drawablePadding="3sp"
+                        android:textSize="12sp"
+                        tools:ignore="MissingConstraints">
+                    </com.app.secureglobal.widget.SmallText>
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

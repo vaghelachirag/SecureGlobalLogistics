@@ -12,6 +12,7 @@ import com.app.secureglobal.model.getMenuListResponse.GetMenuListResponse
 import com.app.secureglobal.model.getMenuWebUrlResponse.GetMenuURLResponse
 import com.app.secureglobal.model.getPreNeighbourData.GetPreNeighbourResponse
 import com.app.secureglobal.model.getSavePickupDataResponse.GetSavePickupResponse
+import com.app.secureglobal.model.getSavePickupDataResponse.SaveDocketPickupData
 import com.app.secureglobal.model.getSaveResidenceVerificationResponse.GetSaveResidenceVerificationResponse
 import com.app.secureglobal.model.getverificationDetailResponse.GetVerificationDetailResponse
 import com.app.secureglobal.model.getUserProfileData.GetUserProfileResponse
@@ -103,5 +104,6 @@ interface ApiInterface {
     @GET("api/Docket/GetDocketForPickup")
     fun getDocketForPickupResponse(@Query("DocketNo") docketNo: String): Observable<GetDocketForPickupResponse>
 
-
+    @POST("api/docket/SavePickup")
+    fun getSavePickupResponse(@Body requestBody: SaveDocketPickupData): Observable<GetSavePickupResponse>
 }

@@ -7,10 +7,16 @@
     <data>
         <variable
             name="pickupDetail"
-            type="com.app.secureglobal.viewmodel.scan.ScanVerificationViewModel"  />
+            type="com.app.secureglobal.viewmodel.DetailViewModel"  />
     </data>
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_Gray">
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingStart="@dimen/_4sdp"
@@ -47,5 +53,120 @@
 
         </LinearLayout>
         </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingTop="@dimen/_8sdp"
+            app:layout_constraintTop_toBottomOf="@+id/card_view"
+            android:orientation="vertical"
+            tools:ignore="RtlSymmetry">
+
+            <com.app.secureglobal.widget.HeaderText
+                android:id="@+id/txtNeighbourChecOne"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pickup Information"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                tools:ignore="MissingConstraints">
+
+            </com.app.secureglobal.widget.HeaderText>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inpSglNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/txtNeighbourChecOne"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:hintTextColor="@color/main_bg"
+                app:passwordToggleEnabled="false"
+                android:background="@color/white"
+                tools:ignore="MissingClass,MissingConstraints">
+
+                <com.app.secureglobal.widget.TypefaceEditText
+                    android:id="@+id/edt_SglNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_size"
+                    android:hint="@string/sglno"
+                    android:imeOptions="actionNext"
+                    android:text="@={pickupDetail.senderNo}"
+                    android:inputType="text"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_323232"
+                    android:textSize="@dimen/verificationDetailTextSize"
+                    app:custom_font="@string/app_font_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inpSenderName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/txtNeighbourChecOne"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:hintTextColor="@color/main_bg"
+                app:passwordToggleEnabled="false"
+                android:background="@color/white"
+                tools:ignore="MissingClass,MissingConstraints">
+
+                <com.app.secureglobal.widget.TypefaceEditText
+                    android:id="@+id/edt_SenderName"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_size"
+                    android:hint="@string/sglname"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:text="@={pickupDetail.senderName}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_323232"
+                    android:textSize="@dimen/verificationDetailTextSize"
+                    app:custom_font="@string/app_font_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inpSenderNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/TextInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/txtNeighbourChecOne"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:hintTextColor="@color/main_bg"
+                app:passwordToggleEnabled="false"
+                android:background="@color/white"
+                tools:ignore="MissingClass,MissingConstraints">
+
+                <com.app.secureglobal.widget.TypefaceEditText
+                    android:id="@+id/edt_SenderNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/edit_text_size"
+                    android:hint="@string/sglnumber"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:text="@={pickupDetail.senderNumber}"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray_323232"
+                    android:textSize="@dimen/verificationDetailTextSize"
+                    app:custom_font="@string/app_font_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginRight="@dimen/_50sdp"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:onClick="@{(view) -> pickupDetail.onSaveClicked()}"
+                android:text="Save"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/main_bg" />
+
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

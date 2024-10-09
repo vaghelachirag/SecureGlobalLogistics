@@ -1,37 +1,105 @@
 package com.app.secureglobal.viewmodel
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import com.app.secureglobal.R
 import com.app.secureglobal.databinding.ActivityDetailBinding
-import com.app.secureglobal.uttils.Utils
-import com.app.secureglobal.model.getverificationDetailResponse.GetVerificationDetailData
-import com.app.secureglobal.network.CallbackObserver
 import com.app.secureglobal.model.base.BaseViewModel
 import com.app.secureglobal.model.getDocketforPickupResponse.GetDocketForPickupResponse
+import com.app.secureglobal.model.getSavePickupDataResponse.GetSavePickupResponse
+import com.app.secureglobal.model.getSavePickupDataResponse.SaveDocketPickupData
+import com.app.secureglobal.network.CallbackObserver
 import com.app.secureglobal.network.Networking
 import com.app.secureglobal.uttils.Utility
+import com.app.secureglobal.uttils.Utils
+import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class DetailViewModel(private val context: Context,  val binding: ActivityDetailBinding) : BaseViewModel(){
+class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Context, val binding: ActivityDetailBinding) : BaseViewModel(){
 
-
-  //  lateinit var getVerificationDetailData : GetVerificationDetailData
 
     var isData = MutableLiveData<Boolean>()
 
-    var getVerificationDetailData: MutableLiveData<GetVerificationDetailData> = MutableLiveData()
+    var senderNo: ObservableField<String> = ObservableField()
+    var senderName: ObservableField<String> = ObservableField()
+    var senderNumber: ObservableField<String> = ObservableField()
 
-
-    var shipperPersonName : ObservableField<String> = ObservableField()
-
+    var docketId: ObservableField<Int> = ObservableField()
 
     fun init(context: Context) {
        isData.value = false
     }
 
+
+    fun onSaveClicked() {
+        Log.e("SenderNo",senderNo.get().toString())
+         if (senderNo.get().toString() == "" || senderNo.get() == null) {
+            Utils().showSnackBar(
+                context,
+                "Please Enter Seal No.",
+                binding.constraintLayout
+            )
+        }
+        else if (senderName.get().toString() == "" || senderName.get() == null) {
+            Utils().showSnackBar(
+                context,
+                "Please Enter Sender Name",
+                binding.constraintLayout
+            )
+        }
+         else if (senderNumber.get().toString() == "" || senderNumber.get() == null) {
+             Utils().showSnackBar(
+                 context,
+                 "Please Enter Sender Number",
+                 binding.constraintLayout
+             )
+         }else{
+          savePickupDetail()
+         }
+    }
+
+    private fun savePickupDetail() {
+        val savePickupResponse = SaveDocketPickupData()
+        savePickupResponse.setDocketId(docketId.get())
+        savePickupResponse.setSglbagNo(senderNo.get().toString())
+        savePickupResponse.setSenderName(senderName.get().toString())
+        savePickupResponse.setSenderMobileNo(senderNumber.get().toString())
+
+
+        val gson = Gson()
+        val json = gson.toJson(savePickupResponse)
+        Log.e("Json", json)
+
+        if (Utility.isNetworkConnected(context)) {
+            isLoading.postValue(true)
+            Networking.with(context)
+                .getServices()
+                .getSavePickupResponse(savePickupResponse)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : CallbackObserver<GetSavePickupResponse>() {
+                    override fun onSuccess(response: GetSavePickupResponse) {
+                        isLoading.postValue(false)
+                    }
+                    override fun onFailed(code: Int, message: String) {
+                        isLoading.postValue(false)
+                    }
+                    override fun onNext(t: GetSavePickupResponse) {
+                        isLoading.postValue(false)
+                        if (t.getStatusCode() == 200) {
+                            Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
+                        } else {
+                            Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
+                        }
+                    }
+                })
+        } else {
+            Utils().showSnackBar(context, context.getString(R.string.nointernetconnection).toString(), binding.constraintLayout)
+        }
+    }
 
     public fun getDocketForPickupResult(docketNumber: String) {
         if (Utility.isNetworkConnected(context)){
@@ -58,11 +126,7 @@ class DetailViewModel(private val context: Context,  val binding: ActivityDetail
                         isLoading.postValue(false)
                         Log.e("Status",t.getStatusCode().toString())
                         if(t.getStatusCode() == 200){
-                            shipperPersonName.set(t.getData()!!.getShipperName().toString())
-                            binding.pickupDocket.txtVerificationForHeader.text = t.getData()!!.getShipperName().toString()
-                            binding.pickupDocket.txtAddress.text = t.getData()!!.getShipperAddress().toString()
-                            binding.pickupDocket.txtShipperNumber.text = t.getData()!!.getShipperMobileNo().toString()
-                            binding.pickupDocket.txtgstnumber.text = t.getData()!!.getShipperGstin().toString()
+                            setPickupData(t)
                         }else{
                             Utils().showToast(context,t.getMessage().toString())
                         }
@@ -72,6 +136,30 @@ class DetailViewModel(private val context: Context,  val binding: ActivityDetail
                 })
         }else{
             Utils().showToast(context,context.getString(R.string.nointernetconnection).toString())
+        }
+    }
+
+    private fun setPickupData(t: GetDocketForPickupResponse) {
+
+        if (t.getData() != null){
+
+            docketId.set(t.getData()!!.getDocketId())
+
+            binding.pickupDocket.txtShipperName.text = Utility.getNullToBlankString(t.getData()!!.getShipperName().toString())
+            binding.pickupDocket.txtShipperAddress.text = Utility.getNullToBlankString(t.getData()!!.getShipperAddress().toString())
+            binding.pickupDocket.txtShipperNumber.text = Utility.getNullToBlankString(t.getData()!!.getShipperMobileNo().toString())
+            binding.pickupDocket.txtgstnumber.text = Utility.getNullToBlankString(t.getData()!!.getShipperGstin().toString())
+
+            binding.pickupDocket.txtConsigneeName.text = Utility.getNullToBlankString(t.getData()!!.getBuyerName().toString())
+            binding.pickupDocket.txtConsigneeAddress.text = Utility.getNullToBlankString(t.getData()!!.getBuyerAddress().toString())
+            binding.pickupDocket.txtConsigneeMobileNumber.text = Utility.getNullToBlankString(t.getData()!!.getBuyerMobileNo().toString())
+            binding.pickupDocket.txtConsigneeGSTNumber.text = Utility.getNullToBlankString(t.getData()!!.getBuyerGstin().toString())
+
+            binding.pickupDocket.txtOrigin.text = Utility.getNullToBlankString(t.getData()!!.getShipperCity().toString())
+            binding.pickupDocket.txtDestination.text = Utility.getNullToBlankString(t.getData()!!.getBuyerCity().toString())
+        }
+        else{
+            Utils().showToast(context,"No Data Found!")
         }
     }
 

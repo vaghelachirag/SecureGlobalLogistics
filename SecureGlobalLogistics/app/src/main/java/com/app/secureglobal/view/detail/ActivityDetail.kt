@@ -54,7 +54,9 @@ open class ActivityDetail  : BaseActivity()  {
 
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         binding.lifecycleOwner = this
+        binding.pickupDetail = detailViewModel
         detailViewModel.init(this)
+
         setView()
         setActionBarHeader()
         setAction()
@@ -94,13 +96,6 @@ open class ActivityDetail  : BaseActivity()  {
             if (isLoading) showProgressbar()
             else if (!isLoading) hideProgressbar()
         }
-
-        detailViewModel.isData.observeForever {
-            if (detailViewModel.isData.value == true){
-                //  Log.e("Verification",detailViewModel.getVerificationDetailData.getStatus().toString())
-            }
-        }
-
     }
 
 

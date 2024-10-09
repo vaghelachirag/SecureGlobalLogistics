@@ -258,6 +258,15 @@
     <string name="gstin">GSTIN:</string>
     <string name="shipperheader">Shippers Detail</string>
 
+    <string name="consigneesheader">Consignees Detail</string>
+
+    <string name="origin">Origin : </string>
+    <string name="destination">Destination : </string>
+
+    <string name="sglno">SGL Bag/ Seal No</string>
+    <string name="sglname">Sender Name</string>
+    <string name="sglnumber">Sender Number</string>
+
 
     <!--    No Internet Connection Message -->
     <string name="nointernetconnection">Local network problem, please check your network</string>
