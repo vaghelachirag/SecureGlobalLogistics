@@ -255,6 +255,8 @@
     <!--Common-->
     <string name="please_wait">Please wait</string>
     <string name="dashboard">Dashboard</string>
+    <string name="gstin">GSTIN:</string>
+    <string name="shipperheader">Shippers Detail</string>
 
 
     <!--    No Internet Connection Message -->

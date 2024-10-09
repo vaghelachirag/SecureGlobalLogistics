@@ -60,6 +60,9 @@ class DetailViewModel(private val context: Context,  val binding: ActivityDetail
                         if(t.getStatusCode() == 200){
                             shipperPersonName.set(t.getData()!!.getShipperName().toString())
                             binding.pickupDocket.txtVerificationForHeader.text = t.getData()!!.getShipperName().toString()
+                            binding.pickupDocket.txtAddress.text = t.getData()!!.getShipperAddress().toString()
+                            binding.pickupDocket.txtShipperNumber.text = t.getData()!!.getShipperMobileNo().toString()
+                            binding.pickupDocket.txtgstnumber.text = t.getData()!!.getShipperGstin().toString()
                         }else{
                             Utils().showToast(context,t.getMessage().toString())
                         }
