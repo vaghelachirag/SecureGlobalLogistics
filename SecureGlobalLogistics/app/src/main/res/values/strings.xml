@@ -252,6 +252,12 @@
     </string-array>
 
 
+    <string-array name="buyer_type">
+        <item>Shipper</item>
+        <item>Consignee</item>
+    </string-array>
+
+
     <!--Common-->
     <string name="please_wait">Please wait</string>
     <string name="dashboard">Dashboard</string>
@@ -267,6 +273,12 @@
     <string name="sglname">Sender Name</string>
     <string name="sglnumber">Sender Number</string>
 
+    <string name="grow_weight">Grows Weight</string>
+    <string name="billing_type">Billing Type</string>
+    <string name="freight">Freight</string>
+    <string name="insurancecharge">Insurance Charge</string>
+    <string name="shccharge">SHC Charge</string>
+    <string name="branch">Destination Branch</string>
 
     <!--    No Internet Connection Message -->
     <string name="nointernetconnection">Local network problem, please check your network</string>

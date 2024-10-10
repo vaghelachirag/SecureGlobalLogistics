@@ -4,24 +4,17 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import com.app.secureglobal.MainActivity
-import com.app.secureglobal.R
 import com.app.secureglobal.databinding.ActivityDetailBinding
-import com.app.secureglobal.model.getDocketForScan.GetDocketForScanResponse
 import com.app.secureglobal.model.getverificationDetailResponse.GetVerificationDetailData
-import com.app.secureglobal.network.CallbackObserver
-import com.app.secureglobal.network.Networking
 import com.app.secureglobal.room.InitDb
 import com.app.secureglobal.uttils.AppConstants
-import com.app.secureglobal.uttils.Utility
-import com.app.secureglobal.uttils.Utils
 import com.app.secureglobal.view.base.BaseActivity
 import com.app.secureglobal.viewmodel.DetailViewModel
 import com.google.zxing.integration.android.IntentIntegrator
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -34,7 +27,7 @@ open class ActivityDetail  : BaseActivity()  {
     private val detailViewModel by lazy { DetailViewModel(this,binding) }
 
 
-    var scanType: Int = 0
+    private var scanType: Int = 0
 
 
     @SuppressLint("DiscouragedPrivateApi", "SimpleDateFormat")
@@ -47,10 +40,10 @@ open class ActivityDetail  : BaseActivity()  {
         scanType = bundle!!.getInt("ScanType")
         Log.e("ScanType",scanType.toString())
 
-     /*   val intentIntegrator = IntentIntegrator(this)
+        val intentIntegrator = IntentIntegrator(this)
         intentIntegrator.setPrompt("Scan a barcode or QR Code")
         intentIntegrator.setOrientationLocked(true)
-        intentIntegrator.initiateScan()*/
+        intentIntegrator.initiateScan()
 
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         binding.lifecycleOwner = this
@@ -60,10 +53,27 @@ open class ActivityDetail  : BaseActivity()  {
         setView()
         setActionBarHeader()
         setAction()
+        setObserver()
 
 
-        detailViewModel.getDocketForPickupResult("TEST5555")
+      //  detailViewModel.getDocketForPickupResult("TEST5555")
+       /* detailViewModel.getDocketForScanResult("TEST5555")
+        detailViewModel.scanType.value = AppConstants.Pickup*/
 
+    }
+
+    private fun setObserver() {
+
+       /* Scan  Type*/
+        detailViewModel.scanType.observeForever {
+            if(detailViewModel.scanType.value == AppConstants.InScan){
+                binding.llPickupDocket.visibility = View.VISIBLE
+                binding.llScanIn.visibility = View.VISIBLE
+            }else{
+                binding.llPickupDocket.visibility = View.VISIBLE
+                binding.llScanIn.visibility = View.GONE
+            }
+        }
     }
 
     private fun setAction() {
@@ -79,7 +89,6 @@ open class ActivityDetail  : BaseActivity()  {
 
     companion object {
         public  var selectedData: GetVerificationDetailData? = null
-        public  var useraddress : String = ""
     }
 
     override fun onResume() {
@@ -115,8 +124,10 @@ open class ActivityDetail  : BaseActivity()  {
                 } else {
                     Log.e("Scan",intentResult.contents)
                     if (scanType == AppConstants.InScan){
-                        getDocketForScanResult(intentResult.contents)
+                        detailViewModel.scanType.value = AppConstants.InScan
+                        detailViewModel.getDocketForScanResult(intentResult.contents)
                     }else{
+                        detailViewModel.scanType.value = AppConstants.Pickup
                         detailViewModel.getDocketForPickupResult(intentResult.contents)
                       //  getDocketForPickupResult(intentResult.contents)
                     }
@@ -125,45 +136,6 @@ open class ActivityDetail  : BaseActivity()  {
             } else {
                 super.onActivityResult(requestCode, resultCode, data)
             }
-    }
-
-
-    private fun getDocketForScanResult(docketNumber: String) {
-        if (Utility.isNetworkConnected(this)){
-            showProgressbar()
-            Networking.with(this)
-                .getServices()
-                .getDocketForScanResponse(docketNumber)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(object : CallbackObserver<GetDocketForScanResponse>() {
-                    override fun onSuccess(response: GetDocketForScanResponse) {
-                        hideProgressbar()
-                    }
-
-                    override fun onFailed(code: Int, message: String) {
-                        hideProgressbar()
-                        Log.e("Status",code.toString())
-                        Utils().showToast(this@ActivityDetail,"Authentication token has expired")
-                        redirectToLogin()
-                    }
-
-                    override fun onNext(t: GetDocketForScanResponse) {
-                        hideProgressbar()
-                        Log.e("Status",t.getStatusCode().toString())
-                        if(t.getStatusCode() == 200){
-                            Utils().showToast(this@ActivityDetail,t.getMessage().toString())
-                        }else{
-                            Utils().showToast(this@ActivityDetail,t.getMessage().toString())
-                            finish()
-                        }
-                        Log.e("StatusCode",t.getStatus().toString())
-                    }
-
-                })
-        }else{
-            Utils().showToast(this@ActivityDetail,getString(R.string.nointernetconnection).toString())
-        }
     }
 
     fun redirectToLogin(){

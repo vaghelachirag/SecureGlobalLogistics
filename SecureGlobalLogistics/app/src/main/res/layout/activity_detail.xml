@@ -42,15 +42,16 @@
             app:cardBackgroundColor="@color/white"
             card_view:cardUseCompatPadding="true"
             app:layout_constraintTop_toBottomOf="@+id/ll_Header">
+
         <LinearLayout
+            android:id="@+id/ll_PickupDocket"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="visible"
             tools:ignore="MissingConstraints">
-
             <include
                 android:id="@+id/pickupDocket"
                 layout="@layout/ll_pickup_docket" />
-
         </LinearLayout>
         </androidx.cardview.widget.CardView>
         <LinearLayout
@@ -152,6 +153,259 @@
                     app:custom_font="@string/app_font_regular" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_ScanIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"
+                    android:orientation="vertical">
+
+                    <com.app.secureglobal.widget.SmallText
+                        android:id="@+id/applicant_StayingAtCurrentAddress_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/grow_weight"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textSize="@dimen/_12sdp"
+                        tools:ignore="SpUsage">
+                    </com.app.secureglobal.widget.SmallText>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inapplicant_StayingAtCurrentAddress_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            style="@style/TextInputLayout"
+                            android:textIsSelectable="true"
+                            android:inputType="none"
+                            app:hintTextColor="@color/main_bg"
+                            app:passwordToggleEnabled="false"
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            tools:ignore="MissingClass,MissingConstraints">
+
+                            <com.app.secureglobal.widget.TypefaceEditText
+                                android:id="@+id/edt_GrowsWeight"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_size"
+                                android:hint="@string/grow_weight"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:text="@={pickupDetail.growsWeight}"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray_323232"
+                                android:textSize="@dimen/verificationDetailTextSize"
+                                app:custom_font="@string/app_font_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/TextInputExposedDropdownMenu"
+                            android:id="@+id/inspncurrentaddress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_NeibourRecognised"
+                            app:hintTextColor="@color/main_bg"
+                            android:textColorHint="@color/main_bg"
+                            android:layout_weight="1"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:hint="select">
+
+                            <com.app.secureglobal.widget.InstantAutoComplete
+                                android:id="@+id/spnGrowsWeightUnit"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_size"
+                                android:clickable="true"
+                                android:cursorVisible="false"
+                                android:focusableInTouchMode="false"
+                                android:entries="@array/addresses_array"
+                                android:focusable="false"
+                                android:textColor="@color/black"
+                                android:text="@={pickupDetail.growsWeightUnit}"
+                                android:textColorHint="@color/gray_323232"
+                                android:textSize="@dimen/verificationDetailTextSize"
+                                app:custom_font="@string/app_font_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_BillingType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.app.secureglobal.widget.SmallText
+                            android:id="@+id/applicant_Relation_Applicant_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/billing_type"
+                            android:textColor="@color/black"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:visibility="gone"
+                            android:textSize="@dimen/_12sdp">
+                        </com.app.secureglobal.widget.SmallText>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/TextInputExposedDropdownMenu"
+                            android:id="@+id/insp_BillingType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_NeibourRecognised"
+                            app:hintTextColor="@color/main_bg"
+                            android:textColorHint="@color/main_bg"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:hint="@string/billing_type">
+
+                            <com.app.secureglobal.widget.InstantAutoComplete
+                                android:id="@+id/spnBillingType"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_size"
+                                android:clickable="true"
+                                android:cursorVisible="false"
+                                android:focusableInTouchMode="false"
+                                android:entries="@array/addresses_array"
+                                android:focusable="false"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray_323232"
+                                android:textSize="@dimen/verificationDetailTextSize"
+                                app:custom_font="@string/app_font_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inpFreight"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/TextInputLayout"
+                            app:layout_constraintTop_toBottomOf="@+id/txtNeighbourChecOne"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            app:hintTextColor="@color/main_bg"
+                            app:passwordToggleEnabled="false"
+                            android:background="@color/white"
+                            tools:ignore="MissingClass,MissingConstraints">
+
+                            <com.app.secureglobal.widget.TypefaceEditText
+                                android:id="@+id/edt_Freight"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_size"
+                                android:hint="@string/freight"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:text="@={pickupDetail.freight}"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray_323232"
+                                android:textSize="@dimen/verificationDetailTextSize"
+                                app:custom_font="@string/app_font_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inpInsuranceCharge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/TextInputLayout"
+                            app:layout_constraintTop_toBottomOf="@+id/txtNeighbourChecOne"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            app:hintTextColor="@color/main_bg"
+                            app:passwordToggleEnabled="false"
+                            android:background="@color/white"
+                            tools:ignore="MissingClass,MissingConstraints">
+
+                            <com.app.secureglobal.widget.TypefaceEditText
+                                android:id="@+id/edt_InsuranceCharge"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_size"
+                                android:hint="@string/insurancecharge"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:text="@={pickupDetail.insuranceCharge}"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray_323232"
+                                android:textSize="@dimen/verificationDetailTextSize"
+                                app:custom_font="@string/app_font_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/inpSHCCharge"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            style="@style/TextInputLayout"
+                            app:layout_constraintTop_toBottomOf="@+id/txtNeighbourChecOne"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            app:hintTextColor="@color/main_bg"
+                            app:passwordToggleEnabled="false"
+                            android:background="@color/white"
+                            tools:ignore="MissingClass,MissingConstraints">
+
+                            <com.app.secureglobal.widget.TypefaceEditText
+                                android:id="@+id/edt_SHCCharge"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/edit_text_size"
+                                android:hint="@string/shccharge"
+                                android:imeOptions="actionNext"
+                                android:inputType="text"
+                                android:text="@={pickupDetail.shcCharge}"
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray_323232"
+                                android:textSize="@dimen/verificationDetailTextSize"
+                                app:custom_font="@string/app_font_regular" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_RelationWithApplicant"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <com.app.secureglobal.widget.SmallText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/branch"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="@dimen/_10sdp"
+                                android:visibility="gone"
+                                android:textSize="@dimen/_12sdp">
+                            </com.app.secureglobal.widget.SmallText>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/TextInputExposedDropdownMenu"
+                                android:id="@+id/inspnapplicant_Relation_Applicant"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_NeibourRecognised"
+                                app:hintTextColor="@color/main_bg"
+                                android:textColorHint="@color/main_bg"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:hint="@string/branch">
+
+                                <com.app.secureglobal.widget.InstantAutoComplete
+                                    android:id="@+id/spnBranch"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/edit_text_size"
+                                    android:clickable="true"
+                                    android:cursorVisible="false"
+                                    android:focusableInTouchMode="false"
+                                    android:entries="@array/addresses_array"
+                                    android:focusable="false"
+                                    android:textColor="@color/black"
+                                    android:text="@={pickupDetail.destinationBranch}"
+                                    android:textColorHint="@color/gray_323232"
+                                    android:textSize="@dimen/verificationDetailTextSize"
+                                    app:custom_font="@string/app_font_regular" />
+                            </com.google.android.material.textfield.TextInputLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSave"
                 android:layout_width="match_parent"
@@ -166,6 +420,7 @@
                 app:backgroundTint="@color/main_bg" />
 
         </LinearLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
