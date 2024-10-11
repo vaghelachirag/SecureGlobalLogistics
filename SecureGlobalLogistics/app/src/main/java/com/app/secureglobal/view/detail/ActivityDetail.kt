@@ -40,10 +40,10 @@ open class ActivityDetail  : BaseActivity()  {
         scanType = bundle!!.getInt("ScanType")
         Log.e("ScanType",scanType.toString())
 
-        val intentIntegrator = IntentIntegrator(this)
+       /* val intentIntegrator = IntentIntegrator(this)
         intentIntegrator.setPrompt("Scan a barcode or QR Code")
         intentIntegrator.setOrientationLocked(true)
-        intentIntegrator.initiateScan()
+        intentIntegrator.initiateScan()*/
 
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         binding.lifecycleOwner = this
@@ -57,8 +57,8 @@ open class ActivityDetail  : BaseActivity()  {
 
 
       //  detailViewModel.getDocketForPickupResult("TEST5555")
-       /* detailViewModel.getDocketForScanResult("TEST5555")
-        detailViewModel.scanType.value = AppConstants.Pickup*/
+        detailViewModel.getDocketForScanResult("TEST5555")
+        detailViewModel.scanType.value = AppConstants.InScan
 
     }
 

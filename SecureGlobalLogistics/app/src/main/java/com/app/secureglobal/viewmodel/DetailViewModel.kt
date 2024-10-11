@@ -50,9 +50,11 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
     fun init(context: Context) {
         isData.value = false
 
+        val houseSizeList = context.resources.getStringArray(R.array.buyer_type)
+        buyerTypeList = houseSizeList.asList()
 
-         buyerTypeList = context.resources.getStringArray(R.array.buyer_type)
-         buyerTypeList = buyerTypeList.asList()
+        binding.spnBillingType.setListAdapter(buyerTypeList!!)
+
     }
 
 
@@ -218,6 +220,23 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
     private fun setScanData(t: GetDocketForScanResponse) {
         if (t.getData() != null){
             docketId.set(t.getData()!!.getDocketId())
+
+            docketId.set(t.getData()!!.getDocketId())
+
+            binding.pickupDocket.txtShipperName.text = Utility.getNullToBlankString(t.getData()!!.getShipperName().toString())
+            binding.pickupDocket.txtShipperAddress.text = Utility.getNullToBlankString(t.getData()!!.getShipperAddress().toString())
+            binding.pickupDocket.txtShipperNumber.text = Utility.getNullToBlankString(t.getData()!!.getShipperMobileNo().toString())
+            binding.pickupDocket.txtgstnumber.text = Utility.getNullToBlankString(t.getData()!!.getShipperGstin().toString())
+
+            binding.pickupDocket.txtConsigneeName.text = Utility.getNullToBlankString(t.getData()!!.getBuyerName().toString())
+            binding.pickupDocket.txtConsigneeAddress.text = Utility.getNullToBlankString(t.getData()!!.getBuyerAddress().toString())
+            binding.pickupDocket.txtConsigneeMobileNumber.text = Utility.getNullToBlankString(t.getData()!!.getBuyerMobileNo().toString())
+            binding.pickupDocket.txtConsigneeGSTNumber.text = Utility.getNullToBlankString(t.getData()!!.getBuyerGstin().toString())
+
+            binding.pickupDocket.txtOrigin.text = Utility.getNullToBlankString(t.getData()!!.getShipperCity().toString())
+            binding.pickupDocket.txtDestination.text = Utility.getNullToBlankString(t.getData()!!.getBuyerCity().toString())
+
+
             senderNumber.set(Utility.getNullToBlankString(t.getData()!!.getBuyerMobileNo()!!))
             growsWeight.set(Utility.getNullToBlankString(t.getData()!!.getGrWt().toString()))
             growsWeightUnit.set(Utility.getNullToBlankString(t.getData()!!.getGrWtUnit().toString()))
