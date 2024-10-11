@@ -11,6 +11,7 @@ import com.app.secureglobal.model.getDocketForScan.GetDocketForScanResponse
 import com.app.secureglobal.model.getDocketforPickupResponse.GetDocketForPickupResponse
 import com.app.secureglobal.model.getSavePickupDataResponse.GetSavePickupResponse
 import com.app.secureglobal.model.getSavePickupDataResponse.SaveDocketPickupData
+import com.app.secureglobal.model.getSaveScanResponse.SaveScanData
 import com.app.secureglobal.network.CallbackObserver
 import com.app.secureglobal.network.Networking
 import com.app.secureglobal.uttils.AppConstants
@@ -33,9 +34,12 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
     // In Scan
     var growsWeight: ObservableField<String> = ObservableField()
     var growsWeightUnit: ObservableField<String> = ObservableField()
+    var billingType = MutableLiveData<String>()
     var freight: ObservableField<String> = ObservableField()
     var insuranceCharge: ObservableField<String> = ObservableField()
     var shcCharge: ObservableField<String> = ObservableField()
+
+
     private var destinationBranchList: ArrayList<String>? = null
 
 
@@ -69,11 +73,45 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
     }
 
     private fun validationForInScan() {
-        if (!destinationBranchList.isNullOrEmpty()){
-            val index = destinationBranchList!!.indexOfFirst { it == destinationBranch.value }
-            Log.e("BranchId",index.toString())
+
+        if (senderNo.get().toString() == "" || senderNo.get() == null) {
+            Utils().showSnackBar(context, "Please Enter Seal No.", binding.constraintLayout)
         }
-    }
+        else if (senderName.get().toString() == "" || senderName.get() == null) {
+            Utils().showSnackBar(context, "Please Enter Sender Name", binding.constraintLayout)
+        }
+        else if (senderNumber.get().toString() == "" || senderNumber.get() == null) {
+            Utils().showSnackBar(context, "Please Enter Sender Number", binding.constraintLayout)
+        }
+        else if (growsWeight.get().toString() == "" || growsWeight.get() == null) {
+            Utils().showSnackBar(context, "Please Enter Grows Weight", binding.constraintLayout)
+        }
+        else if (growsWeightUnit.get().toString() == "" || growsWeightUnit.get() == null) {
+            Utils().showSnackBar(context, "Please Enter Grows Weight Unit", binding.constraintLayout)
+        }
+        else if ( billingType.value.toString() == ""  || billingType.value == null) {
+            Utils().showSnackBar(context, "Please Select Billing Type", binding.constraintLayout)
+        }
+        else if (freight.get().toString() == "" || freight.get() == null) {
+            Utils().showSnackBar(context, "Please Enter Freight", binding.constraintLayout)
+        }
+        else if (insuranceCharge.get().toString() == "" || insuranceCharge.get() == null) {
+            Utils().showSnackBar(context, "Please Enter Insurance Charge", binding.constraintLayout)
+        }
+        else if (shcCharge.get().toString() == "" || shcCharge.get() == null) {
+            Utils().showSnackBar(context, "Please Enter SHC Charge", binding.constraintLayout)
+        }
+        else if (shcCharge.get().toString() == "" || shcCharge.get() == null) {
+            Utils().showSnackBar(context, "Please Enter SHC Charge", binding.constraintLayout)
+        }
+        else if (destinationBranch.value.toString() == "" || destinationBranch.value == null) {
+            Utils().showSnackBar(context, "Please Select Destination Branch", binding.constraintLayout)
+        }
+        else{
+            saveInScanData()
+        }
+
+       }
 
     private fun validationForPickup() {
         if (senderNo.get().toString() == "" || senderNo.get() == null) {
@@ -140,7 +178,30 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
     }
 
     private fun saveInScanData() {
+        var billingTypeId = 0
+        if (!buyerTypeList.isNullOrEmpty()){
+            billingTypeId = buyerTypeList!!.indexOfFirst { it == billingType.value }
+         Log.e("BranchId",billingType.toString())
+        }
 
+        var destinationId = 0
+        if (!destinationBranchList.isNullOrEmpty()){
+            destinationId = destinationBranchList!!.indexOfFirst { it == destinationBranch.value }
+            Log.e("BranchId",billingType.toString())
+        }
+
+        val saveScanData = SaveScanData()
+        saveScanData.setDocketId(docketId.get())
+        saveScanData.setSglbagNo(senderNo.get().toString())
+        saveScanData.setSenderName(senderName.get().toString())
+        saveScanData.setSenderMobileNo(senderNumber.get().toString())
+        saveScanData.setGrWt(0.0)
+        saveScanData.setGrWtUnit(growsWeightUnit.get().toString())
+        saveScanData.setBillingType(billingTypeId)
+        saveScanData.setFreight(0.0)
+        saveScanData.setInsuranceCharge(0.0)
+        saveScanData.setShccharge(0.0)
+        saveScanData.setDestinationBranchId(destinationId)
     }
 
     public fun getDocketForPickupResult(docketNumber: String) {

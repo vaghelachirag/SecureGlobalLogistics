@@ -276,6 +276,7 @@
                                 android:entries="@array/addresses_array"
                                 android:focusable="false"
                                 android:textColor="@color/black"
+                                android:text="@={pickupDetail.billingType}"
                                 android:textColorHint="@color/gray_323232"
                                 android:textSize="@dimen/verificationDetailTextSize"
                                 app:custom_font="@string/app_font_regular" />
