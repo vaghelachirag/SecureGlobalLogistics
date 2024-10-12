@@ -14,6 +14,9 @@ import com.app.secureglobal.model.getPreNeighbourData.GetPreNeighbourResponse
 import com.app.secureglobal.model.getSavePickupDataResponse.GetSavePickupResponse
 import com.app.secureglobal.model.getSavePickupDataResponse.SaveDocketPickupData
 import com.app.secureglobal.model.getSaveResidenceVerificationResponse.GetSaveResidenceVerificationResponse
+import com.app.secureglobal.model.getSaveScanResponse.GetSaveScanData
+import com.app.secureglobal.model.getSaveScanResponse.GetSaveScanResponse
+import com.app.secureglobal.model.getSaveScanResponse.SaveScanData
 import com.app.secureglobal.model.getverificationDetailResponse.GetVerificationDetailResponse
 import com.app.secureglobal.model.getUserProfileData.GetUserProfileResponse
 import com.app.secureglobal.model.getmasterData.GetMasterApiResponse
@@ -106,4 +109,8 @@ interface ApiInterface {
 
     @POST("api/docket/SavePickup")
     fun getSavePickupResponse(@Body requestBody: SaveDocketPickupData): Observable<GetSavePickupResponse>
+
+
+    @POST("api/Docket/SaveInScan")
+    fun getSaveInScanResponse(@Body requestBody: SaveScanData): Observable<GetSavePickupResponse>
 }

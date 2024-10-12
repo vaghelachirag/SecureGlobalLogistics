@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import com.app.secureglobal.R
 import com.app.secureglobal.databinding.ActivityDetailBinding
 import com.app.secureglobal.model.base.BaseViewModel
+import com.app.secureglobal.model.getDocketForScan.GetDocketBranchData
 import com.app.secureglobal.model.getDocketForScan.GetDocketForScanResponse
 import com.app.secureglobal.model.getDocketforPickupResponse.GetDocketForPickupResponse
 import com.app.secureglobal.model.getSavePickupDataResponse.GetSavePickupResponse
@@ -41,6 +42,7 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
 
 
     private var destinationBranchList: ArrayList<String>? = null
+    private var destinationBranchListMain: List<GetDocketBranchData>? = null
 
 
     private var docketId: ObservableField<Int> = ObservableField()
@@ -187,7 +189,8 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
         var destinationId = 0
         if (!destinationBranchList.isNullOrEmpty()){
             destinationId = destinationBranchList!!.indexOfFirst { it == destinationBranch.value }
-            Log.e("BranchId",billingType.toString())
+            destinationId = destinationBranchListMain!![0].id
+            Log.e("BranchId",destinationId.toString())
         }
 
         val saveScanData = SaveScanData()
@@ -202,6 +205,39 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
         saveScanData.setInsuranceCharge(0.0)
         saveScanData.setShccharge(0.0)
         saveScanData.setDestinationBranchId(destinationId)
+
+
+
+        val gson = Gson()
+        val json = gson.toJson(saveScanData)
+        Log.e("Json", json)
+
+        if (Utility.isNetworkConnected(context)) {
+            isLoading.postValue(true)
+            Networking.with(context)
+                .getServices()
+                .getSaveInScanResponse(saveScanData)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(object : CallbackObserver<GetSavePickupResponse>() {
+                    override fun onSuccess(response: GetSavePickupResponse) {
+                        isLoading.postValue(false)
+                    }
+                    override fun onFailed(code: Int, message: String) {
+                        isLoading.postValue(false)
+                    }
+                    override fun onNext(t: GetSavePickupResponse) {
+                        isLoading.postValue(false)
+                        if (t.getStatusCode() == 200) {
+                            Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
+                        } else {
+                            Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
+                        }
+                    }
+                })
+        } else {
+            Utils().showSnackBar(context, context.getString(R.string.nointernetconnection).toString(), binding.constraintLayout)
+        }
     }
 
     public fun getDocketForPickupResult(docketNumber: String) {
@@ -284,6 +320,7 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
 
             docketId.set(t.getData()!!.getDocketId())
 
+
             binding.pickupDocket.txtShipperName.text = Utility.getNullToBlankString(t.getData()!!.getShipperName().toString())
             binding.pickupDocket.txtShipperAddress.text = Utility.getNullToBlankString(t.getData()!!.getShipperAddress().toString())
             binding.pickupDocket.txtShipperNumber.text = Utility.getNullToBlankString(t.getData()!!.getShipperMobileNo().toString())
@@ -309,6 +346,7 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
                 for (i in t.getData()!!.getBranchList()!!){
                     destinationBranchList!!.add(i.text)
                 }
+                destinationBranchListMain = t.getData()!!.getBranchList()
             }
 
             binding.spnBranch.setListAdapter(destinationBranchList)
