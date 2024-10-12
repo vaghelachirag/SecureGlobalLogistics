@@ -1,5 +1,6 @@
 package com.app.secureglobal.viewmodel
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.util.Log
 import androidx.databinding.ObservableField
@@ -18,6 +19,7 @@ import com.app.secureglobal.network.Networking
 import com.app.secureglobal.uttils.AppConstants
 import com.app.secureglobal.uttils.Utility
 import com.app.secureglobal.uttils.Utils
+import com.app.secureglobal.view.dialougs.MessageDialog
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -168,7 +170,7 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
                     override fun onNext(t: GetSavePickupResponse) {
                         isLoading.postValue(false)
                         if (t.getStatusCode() == 200) {
-                            Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
+                            showMessageDialoug(t.getMessage().toString())
                         } else {
                             Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
                         }
@@ -198,12 +200,12 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
         saveScanData.setSglbagNo(senderNo.get().toString())
         saveScanData.setSenderName(senderName.get().toString())
         saveScanData.setSenderMobileNo(senderNumber.get().toString())
-        saveScanData.setGrWt(0.0)
+        saveScanData.setGrWt(growsWeight.get()!!.toDouble())
         saveScanData.setGrWtUnit(growsWeightUnit.get().toString())
         saveScanData.setBillingType(billingTypeId)
-        saveScanData.setFreight(0.0)
-        saveScanData.setInsuranceCharge(0.0)
-        saveScanData.setShccharge(0.0)
+        saveScanData.setFreight(freight.get()!!.toDouble())
+        saveScanData.setInsuranceCharge(insuranceCharge.get()!!.toDouble())
+        saveScanData.setShccharge(shcCharge.get()!!.toDouble())
         saveScanData.setDestinationBranchId(destinationId)
 
 
@@ -229,15 +231,30 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
                     override fun onNext(t: GetSavePickupResponse) {
                         isLoading.postValue(false)
                         if (t.getStatusCode() == 200) {
-                            Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
+                          //  Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
+                            showMessageDialoug( t.getMessage())
                         } else {
+                            showMessageDialoug( t.getMessage())
                             Utils().showSnackBar(context, t.getMessage().toString(), binding.constraintLayout)
                         }
                     }
+
+
                 })
         } else {
             Utils().showSnackBar(context, context.getString(R.string.nointernetconnection).toString(), binding.constraintLayout)
         }
+    }
+    private fun showMessageDialoug(message: String?) {
+        MessageDialog(context, message)
+            .setListener(object : MessageDialog.OkButtonListener {
+                override fun onOkPressed(dialog: MessageDialog) {
+                    dialog.dismiss()
+                    (context as Activity).finish()
+                }
+            })
+            .setCancelButton(true)
+            .show()
     }
 
     public fun getDocketForPickupResult(docketNumber: String) {
@@ -266,7 +283,9 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
                         if(t.getStatusCode() == 200){
                             setPickupData(t)
                         }else{
-                            Utils().showToast(context,t.getMessage().toString())
+                            showMessageDialoug(t.getMessage().toString())
+                            /*Utils().showToast(context,t.getMessage().toString())
+                            (context as Activity).finish()*/
                         }
                         Log.e("StatusCode",t.getStatus().toString())
                     }
@@ -303,7 +322,7 @@ class DetailViewModel(@SuppressLint("StaticFieldLeak") private val context: Cont
                         if(t.getStatusCode() == 200){
                             setScanData(t)
                         }else{
-                            Utils().showToast(context,t.getMessage().toString())
+                            showMessageDialoug(t.getMessage().toString())
                         }
                         Log.e("StatusCode",t.getStatus().toString())
                     }
